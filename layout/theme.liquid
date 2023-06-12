@@ -1,0 +1,73 @@
+{%- liquid
+  assign header_override = header_override | default: false
+  assign footer_override = footer_override | default: false
+-%}
+
+<!doctype html>
+<html class="no-js tpl-{{ template.name }}" lang="{{ request.locale.iso_code }}">
+  <head>
+
+    <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    <meta name="description" content="{{ page_description | escape | default: shop.description | escape }}">
+    
+    {% render 'meta-tags' %}
+
+    {{ content_for_header }}
+
+    <link rel="stylesheet" href="{{ 'style.css' | asset_url }}" type="text/css" rel="preload" as="style" media="all">            
+
+    {% render 'tracking-head' %}
+  </head>
+  
+  <body>        
+
+    <a class="accessible-hide-focus" href="#content">{{ 'accessibility.skip_to_content' | t }}</a>    
+
+    <div class="page" id="top">      
+
+      <header class="page__header">
+        {% if header_override %}
+          {{ header_override }}
+        {% else %}
+          {% section 'header' %}
+        {% endif %}
+      </header>
+
+      <main class="page__main" id="content" tabindex="-1">        
+        {{ content_for_layout }}
+      </main>
+
+      <footer class="page__footer">
+        {% if footer_override %}
+          {{ footer_override }}
+        {% else %}
+          {% section 'footer' %}
+        {% endif %}
+      </footer>
+
+    </div>
+        
+    <script src="{{ 'script.js' | asset_url }}" defer></script>
+    
+    {% render 'tracking-body-end' %}
+
+  </body>
+</html>

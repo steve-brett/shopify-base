@@ -1,0 +1,25 @@
+{% if recommendations.performed? and recommendations.products_count > 0 %}
+
+  <section id="s-{{ section.id }}" class="section section--recommendations" data-recommend="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.limit }}&intent=related">
+
+    <div class="product-list">
+      {% for product in recommendations.products %}
+        
+        <div class="product-list__item">
+          {% render 'cp-product-card', product: product %}
+        </div>
+
+      {% endfor %}
+    </div>
+    
+  </section>
+
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Recommendations",
+    "settings": [
+    ]
+  }
+{% endschema %}
