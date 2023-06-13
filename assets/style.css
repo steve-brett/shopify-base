@@ -49,6 +49,10 @@ img, svg {
   height: auto;
 }
 
+svg {
+  fill: currentColor;
+}
+
 /* TYPE */
 
 :is(h1, h2, h3, h4, h5, h6):first-child { margin-top: 0; }
@@ -144,6 +148,32 @@ input, select, textarea {
 .cp-header__nav__item:hover .cp-header__nav__sublist,
 .cp-header__nav__item:focus-within .cp-header__nav__sublist {
   display: flex;
+}
+
+/* FOOTER */
+
+.cp-footer__inner {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cp-footer__nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cp-footer__nav a {
+  color: var(--clr-primary);
+}
+
+.cp-footer__nav a.is-active {
+  font-weight: bold;
 }
 
 /* MESSAGE */

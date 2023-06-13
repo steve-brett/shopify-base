@@ -14,7 +14,7 @@
 
       <nav class="cp-header__nav">
         <ul class="cp-header__nav__list">
-          {% for link in linklists.main-menu.links %}
+          {% for link in linklists[section.settings.menu].links %}
             <li class="cp-header__nav__item">
               <a href="{{ link.url }}" class="{% if link.active or link.child_active %}is-active{% endif %}">
                 {{ link.title }}
@@ -60,6 +60,11 @@
       "id": "logo_width",
       "type": "text",
       "label": "Logo width"
+    },
+    {
+      "id": "menu",
+      "type": "link_list",
+      "label": "Menu"
     }
   ]
 }

@@ -11,6 +11,13 @@
     "login": "Login",
     "account": "Account"
   },
+  "footer": {
+    "copyright": "Copyright {{ shop_name }}"
+  },
+  "newsletter": {
+    "label": "Email",
+    "subscribe": "Subscribe"
+  },
   "contact": {
     "label_first_name": "First name",
     "label_last_name": "Last name",
