@@ -1,6 +1,7 @@
 <div class="cp-footer">
   <div class="layout">
-    <div class="cp-footer__inner">
+    
+    <div class="cp-footer__main">
 
       <p class="cp-footer__legal">© {{ 'now' | date: '%Y' }} {{ 'footer.copyright' | t: shop_name: shop.name }}</p>
 
@@ -25,9 +26,47 @@
             {% endfor %}
           {% endif %}
         </ul>
-      </nav>
+      </nav>      
 
     </div>
+
+    <div class="cp-footer__secondary">
+
+      {% comment %}https://shopify.dev/docs/themes/markets/multiple-currencies-languages{% endcomment %}
+
+      {% if section.settings.show_currency and localization.available_countries.size > 1 %}
+        {% form 'localization' %}
+          {% comment %}<p>{{ localization.country.name }} ({{ localization.country.currency.iso_code }} {{ localization.country.currency.symbol }})</p>{% endcomment %}
+
+          <select name="country_code" onchange="this.form.submit()">
+            {% for country in localization.available_countries %}
+              <option value="{{ country.iso_code }}" {% if country.iso_code == localization.country.iso_code %}selected{% endif %}>
+                {{ country.name }} ({{ country.currency.iso_code }}
+                {{ country.currency.symbol }})
+              </option>
+            {% endfor %}          
+          </select>
+
+        {% endform %}
+      {% endif %}
+
+      {% if section.settings.show_language and localization.available_languages.size > 0 %}
+        {% form 'localization' %}
+          {% comment %} <p>{{ localization.language.name }}</p> {% endcomment %}
+
+          <select name="locale_code" onchange="this.form.submit()">
+            {% for language in localization.available_languages %}
+              <option value="{{ language.iso_code }}" {% if language.iso_code == localization.language.iso_code %}selected{% endif %}>
+                {{ language.endonym_name | capitalize }}
+              </option>
+            {% endfor %}
+          </select>
+        
+        {% endform %}
+      {% endif %}
+
+    </div>
+
   </div>
 </div>
 
@@ -43,7 +82,20 @@
     {
       "id": "show_social",
       "type": "checkbox",
-      "label": "Show social"
+      "label": "Show social",
+      "default": true
+    },
+    {
+      "id": "show_currency",
+      "type": "checkbox",
+      "label": "Show currency",
+      "default": true
+    },
+    {
+      "id": "show_language",
+      "type": "checkbox",
+      "label": "Show language",
+      "default": true
     }
   ]
 }
