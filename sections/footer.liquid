@@ -32,6 +32,8 @@
 
     <div class="cp-footer__secondary">
 
+      {% comment %}https://shopify.dev/docs/themes/markets/multiple-currencies-languages{% endcomment %}
+
       {% if section.settings.show_currency and localization.available_countries.size > 1 %}
         {% form 'localization' %}
           {% comment %}<p>{{ localization.country.name }} ({{ localization.country.currency.iso_code }} {{ localization.country.currency.symbol }})</p>{% endcomment %}
