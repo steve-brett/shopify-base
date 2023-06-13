@@ -11,6 +11,7 @@
 
   {% if image != blank %}
     <img 
+      class="cp-card__image"
       src="{{ image | image_url: width: image.width }}"
       width="{{ image.width }}"
       height="{{ image.height }}"
@@ -20,7 +21,7 @@
   {% endif %}
 
   {% if url != blank %}
-    <p class="cp-card__action"><a href="{{ url }}">{{ 'general.view' | t }}</a></p>
+    <p class="cp-card__action"><a href="{{ url }}" class="btn btn--full">{{ 'general.view' | t }}</a></p>
   {% endif %}
 
 </div>
