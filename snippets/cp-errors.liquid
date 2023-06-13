@@ -1,0 +1,10 @@
+{% liquid 
+  unless error_title
+    assign error_title = 'general.form_error' | t
+  endunless
+%}
+
+{% if errors %}
+  {% capture error_body %}{{ errors | default_errors }}{% endcapture %}
+  {% render 'cp-message', title: error_title, type: 'error', body: error_body, class: class %}
+{% endif %}

@@ -1,5 +1,8 @@
 {
   "accessibility": {
     "skip_to_content": "Skip to content"
+  },
+  "general": {
+    "form_error": "Oops, something went wrong!"
   }
 }
