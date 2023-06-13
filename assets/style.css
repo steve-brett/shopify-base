@@ -1,0 +1,51 @@
+html {
+  font-family: sans-serif;
+}
+
+/* PAGE */
+
+.page__main {
+  padding-block: 50px;
+}
+
+/* LAYOUT */
+
+.layout {
+  max-width: 1000px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* BUTTONS */
+
+button {
+  background: black;
+  color: white;
+  padding: 10px 12px;
+  border: 0;
+  font-weight: bold;
+  font-size: inherit;
+}
+
+/* FORMS */
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  display: block;
+  font-size: inherit;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid grey;
+  padding: 10px;
+}
+
+.field {
+  margin-bottom: 10px;
+}
+
+
