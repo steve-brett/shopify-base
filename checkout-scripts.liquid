@@ -1,0 +1,28 @@
+{% comment %}
+  REF: https://help.shopify.com/en/manual/orders/status-tracking/customize-order-status#add-additional-scripts
+{% endcomment %}
+
+<!-- CUSTOM HTML/LIQUID -->
+<div>Some custom code</div>
+
+<!-- TRACKING -->
+<script>
+  window.trackingEnabled = false;
+  window.dataLayer = window.dataLayer || [];
+
+  (window.localStorage.getItem('trackingConsentAccepted') == 1) ? enableTracking() : console.log('tracking disabled');
+
+  // enable tracking scripts/behaviours
+  function enableTracking() {
+    console.log('tracking enabled');
+
+    // ADD TRACKING CODE HERE
+    
+    {% if first_time_accessed %}
+      // MAYBE SPECIFIC GA DATA PUSH
+    {% endif %}  
+    
+    window.trackingEnabled = true;
+    document.dispatchEvent(new Event('trackingLoaded'));
+  }
+</script>

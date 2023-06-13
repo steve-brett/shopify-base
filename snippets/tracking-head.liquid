@@ -1,1 +1,30 @@
-<!-- E.g. Google analytics -->
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+
+<script>
+  window.trackingEnabled = false;
+  window.dataLayer = window.dataLayer || [];
+
+  window.Shopify.loadFeatures([{
+    name: 'consent-tracking-api',
+    version: '0.1',
+  }], () => {
+    console.log('Shopify.loadFeatures: consent-tracking-api');
+    (!window.Shopify.customerPrivacy || window.Shopify.customerPrivacy.userCanBeTracked()) ? enableTracking() : console.log('tracking disabled');
+  });
+
+  // listen for tracking consent
+  document.addEventListener('trackingConsentAccepted', ()=> enableTracking());
+
+  // enable tracking scripts/behaviours
+  function enableTracking() {
+    console.log('tracking enabled');
+        
+    // set local storage flag for use in checkout scripts
+    window.localStorage.setItem('trackingConsentAccepted', 1); 
+
+    // ADD TRACKING CODE HERE
+
+    window.trackingEnabled = true;
+    document.dispatchEvent(new Event('trackingLoaded'));
+  }
+</script>
