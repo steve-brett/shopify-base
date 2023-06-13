@@ -6,6 +6,11 @@
     "form_error": "Oops, something went wrong!",
     "view": "View"
   },
+  "nav": {
+    "cart": "Basket",
+    "login": "Login",
+    "account": "Account"
+  },
   "contact": {
     "label_first_name": "First name",
     "label_last_name": "Last name",
