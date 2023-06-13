@@ -1,5 +1,18 @@
 {
   "accessibility": {
     "skip_to_content": "Skip to content"
+  },
+  "general": {
+    "form_error": "Oops, something went wrong!"
+  },
+  "contact": {
+    "label_first_name": "First name",
+    "label_last_name": "Last name",
+    "label_phone": "Phone",
+    "label_email": "Email",
+    "label_order_number": "Order number",
+    "label_message": "Message",
+    "success_title": "Thanks, your message was sent successfully.",
+    "success_body_html": "<p>We will be in touch.</p>"
   }
 }

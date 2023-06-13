@@ -16,6 +16,8 @@ html {
   padding-inline: 20px;
 }
 
+/* TYPE */
+
 /* BUTTONS */
 
 button {
@@ -42,10 +44,38 @@ input, select, textarea {
   max-width: 400px;
   border: 1px solid grey;
   padding: 10px;
+  font-family: inherit;
 }
 
 .field {
   margin-bottom: 10px;
 }
 
+/* MESSAGE */
 
+.cp-message {
+  background: light-grey;
+  padding: 20px;
+  margin-block: 20px;
+}
+
+.cp-message__title {
+  margin-block: 0 0.5em;
+}
+
+.cp-message--error {
+  background: lightpink;
+}
+
+.cp-message--success {
+  background: lightgreen;
+}
+
+.cp-message__body :is(h1, h2, h3, h4, h5, h6, p, ul, li):first-child { margin-top: 0; }
+.cp-message__body :is(h1, h2, h3, h4, h5, h6, p, ul, li):last-child { margin-bottom: 0; }
+
+.cp-message__body ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

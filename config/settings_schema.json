@@ -6,5 +6,29 @@
     "theme_author": "Keir Moffatt",
     "theme_documentation_url": "https:\/\/iamkeir.com",
     "theme_support_email": "hello@iamkeir.com"
+  },
+  {
+    "name": "Contact form",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Required fields"
+      },
+      {
+        "id": "contact_first_name_required",
+        "label": "First name",
+        "type": "checkbox"
+      },
+      {
+        "id": "contact_last_name_required",
+        "label": "Last name",
+        "type": "checkbox"
+      },
+      {
+        "id": "contact_phone_required",
+        "label": "Phone",
+        "type": "checkbox"
+      }
+    ]
   }
 ]

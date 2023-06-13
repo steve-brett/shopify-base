@@ -1,36 +1,51 @@
-{% form 'contact' %}
-  {{ form.errors | default_errors }}
+{% form 'contact', novalidate: '' %}  
+  <!-- Ref: https://shopify.dev/docs/api/liquid/tags/form -->
 
-  <div class="field">
-    <label for="first-name">First name</label>
-    <input type="text" name="contact[first_name]" id="first-name" />
-  </div>
-
-  <div class="field">
-    <label for="last-name">Last name</label>
-    <input type="text" name="contact[last_name]" id="last-name" />
-  </div>
-
-  <div class="field">
-    <label for="phone">Phone</label>
-    <input type="tel" name="contact[phone]" id="phone" />
-  </div>
-
-  <div class="field">
-    <label for="email">Email</label>
-    <input type="email" name="contact[email]" id="email" />
-  </div>
-
-  <div class="field">
-    <label for="order-number">Order number</label>
-    <input type="text" name="contact[order_number]" id="order-number" />
-  </div>
-
-  <div class="field">
-    <label for="message">Message</label>
-    <textarea name="contact[body]" id="message"></textarea>
-  </div>
+  {% if form.posted_successfully? %}
+    
+    <!-- SUCCESS -->
+    {% assign success_title = 'contact.success_title' | t %}
+    {% assign success_body = 'contact.success_body_html' | t %}
+    {% render 'cp-message', title: success_title, body: success_body, type: 'success' %}
   
-  <button>Send message</button>
+  {% else %}
+    
+    <!-- FORM -->
+    {% comment %}{{ form.errors | default_errors }}{% endcomment %}
+    {% render 'cp-message-errors', errors: form.errors %}
+
+    <div class="field">
+      <label for="first-name">{{ 'contact.label_first_name' | t }}</label>
+      <input type="text" name="contact[first_name]" id="first-name" {% if settings.contact_first_name_required %}required{% endif %} />
+    </div>
+
+    <div class="field">
+      <label for="last-name">{{ 'contact.label_last_name' | t }}</label>
+      <input type="text" name="contact[last_name]" id="last-name" {% if settings.contact_last_name_required %}required{% endif %} />
+    </div>
+
+    <div class="field">
+      <label for="phone">{{ 'contact.label_phone' | t }}</label>
+      <input type="tel" name="contact[phone]" id="phone" {% if settings.contact_phone_required %}required{% endif %} />
+    </div>
+
+    <div class="field">
+      <label for="email">{{ 'contact.label_email' | t }}</label>
+      <input type="email" name="contact[email]" id="email" required />
+    </div>
+
+    <div class="field">
+      <label for="order-number">{{ 'contact.label_order_number' | t }}</label>
+      <input type="text" name="contact[order_number]" id="order-number" />
+    </div>
+
+    <div class="field">
+      <label for="message">{{ 'contact.label_message' | t }}</label>
+      <textarea name="contact[body]" id="message" rows="5"></textarea>
+    </div>
+    
+    <button>Send message</button>
+  
+  {% endif %}
   
 {% endform %}
