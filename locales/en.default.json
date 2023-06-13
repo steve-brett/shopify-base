@@ -3,7 +3,8 @@
     "skip_to_content": "Skip to content"
   },
   "general": {
-    "form_error": "Oops, something went wrong!"
+    "form_error": "Oops, something went wrong!",
+    "view": "View"
   },
   "contact": {
     "label_first_name": "First name",

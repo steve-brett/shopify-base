@@ -16,6 +16,10 @@ html {
   padding-inline: 20px;
 }
 
+.shopify-section {
+  padding-block: 30px;
+}
+
 /* TYPE */
 
 /* BUTTONS */
@@ -78,4 +82,10 @@ input, select, textarea {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+/* CARD */
+
+.cp-card {
+
 }
