@@ -2,12 +2,20 @@
 
   {% if form.posted_successfully? %}
 
-    <p><strong>Thanks, your message was sent successfully. We will be in touch.</strong></p>
+    {% 
+      render 'cp-message', 
+        title: 'Thanks, your message was sent successfully.', 
+        body: '<p>We will be in touch.</p>'
+        type: 'success'
+    %}
   
   {% else %}
     
     {% comment %}{{ form.errors | default_errors }}{% endcomment %}
-    {% render 'cp-message-errors', errors: form.errors %}
+    {% 
+      render 'cp-message-errors', 
+        errors: form.errors 
+    %}
 
     <div class="field">
       <label for="first-name">First name</label>
@@ -36,7 +44,7 @@
 
     <div class="field">
       <label for="message">Message</label>
-      <textarea name="contact[body]" id="message"></textarea>
+      <textarea name="contact[body]" id="message" rows="5"></textarea>
     </div>
     
     <button>Send message</button>
