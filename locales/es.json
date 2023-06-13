@@ -652,6 +652,13 @@
       },
       "tags": {
         "label": "Más filtros"
+      },
+      "availability": {
+        "label": "Disponibilidad",
+        "value": {
+          "in_stock": "En stock",
+          "out_of_stock": "Agotado"
+        }
       }
     },
     "search": {
@@ -785,7 +792,143 @@
       "invalid_state_in_country": "no es un estado válido en %{country}",
       "invalid_region_in_country": "no es una región válida en %{country}",
       "less_than_or_equal_to": "debe ser menor o igual que %{count}",
-      "not_supported": "no es apoyado"
+      "not_supported": "no es apoyado",
+      "full_name_required": "Ingrese un nombre y apellido",
+      "invalid_for_card_type": "no es válido",
+      "invalid_type": "lo siento, no aceptamos tarjetas de este tipo",
+      "invalid_format": "el formato no es valido",
+      "expired": "ha expirado",
+      "invalid_start_date_or_issue_number_for_debit": "se requiere una fecha de inicio válida o un número de emisión",
+      "invalid_expiry_year": "no es un año de caducidad válido",
+      "reset_password_html": "Esta dirección de correo electrónico ya está asociada con una cuenta. Si esta cuenta es tuya, puedes <a href=\"\/account\/login#recover\">restablecer tu contraseña<\/a>",
+      "verify_email": "Hemos enviado un correo electrónico a %{customer_email}, haga clic en el enlace incluido para verificar su dirección de correo electrónico.",
+      "product_not_available": "El producto no está publicado para este cliente."
+    },
+    "notices": {
+      "customer": {
+        "password_reset_error": "Error de restablecimiento de contraseña",
+        "no_account_found": "No se encontró ninguna cuenta con ese correo electrónico.",
+        "invalid_credentials": "Correo o contraseña incorrectos.",
+        "denylisted_reset_password": "No se pudo acceder a su cuenta porque la contraseña actual no es segura. Recibirá un correo electrónico para actualizar su contraseña."
+      },
+      "address": {
+        "updated": "Dirección actualizada con éxito.",
+        "error_updating": "Error al actualizar la dirección",
+        "created": "Dirección creada con éxito",
+        "error_creating": "Error al crear la dirección.",
+        "deleted": "Dirección eliminada con éxito",
+        "error_deleting": "Error al eliminar la dirección."
+      },
+      "order": {
+        "not_available": "Este pedido no está disponible",
+        "financial_status": {
+          "authorized": "Autorizado",
+          "pending": "Pendiente",
+          "paid": "Pagado",
+          "unpaid": "No pagado",
+          "voided": "Anulado",
+          "partially_paid": "Parcialmente pagado",
+          "partially_refunded": "Reintegrado parcialmente",
+          "refunded": "Reintegrado",
+          "expired": "Venció"
+        },
+        "fulfillment_status": {
+          "fulfilled": "cumplido",
+          "complete": "Completo",
+          "partial": "Parcial",
+          "unfulfilled": "incumplido",
+          "restocked": "reabastecido"
+        },
+        "transaction_status": {
+          "success": "Éxito",
+          "pending": "Pendiente",
+          "failure": "Falla"
+        },
+        "cancel_reason": {
+          "declined": "Pago rechazado",
+          "inventory": "Artículos no disponibles",
+          "fraud": "pedido fraudulento",
+          "customer": "Pedido cambiado\/cancelado por el cliente",
+          "other": "Otro"
+        },
+        "cash_on_delivery": "Contra Reembolso (COD)"
+      },
+      "cart": {
+        "only_n_items_available": "Solo puede agregar %{count} %{name} al carrito.",
+        "too_many_items_in_cart": "No puede agregar más %{name} al carrito.",
+        "less_than_minimum": "Este artículo tiene un mínimo de %{min}.",
+        "more_than_maximum": "Este elemento tiene un máximo de %{max}.",
+        "not_respect_step": "Solo puede agregar este elemento en múltiplos de %{step}.",
+        "all_items_in_cart": "Todos los %{count} %{name} están en su carrito.",
+        "empty_update": "no se puede actualizar el carrito vacio",
+        "missing_parameters": "sin ID o parámetro de línea válidos",
+        "generic_error": "error del carrito",
+        "product_not_available": "El producto no está disponible",
+        "too_many_line_items_error": "Su carrito no puede contener más de %{max} artículos.",
+        "link_expired": "Enlace expirado",
+        "link_no_longer_exists": "El enlace ya no existe.",
+        "stock_problems_html": "Uno o más artículos ya no están disponibles. Hemos proporcionado un <a href=\"%{link}\">carrito actualizado<\/a> .",
+        "changed": "Carrito cambiado",
+        "items_changed": "Uno o más elementos han cambiado.",
+        "product_sold_out": "El producto '%{name}' ya está agotado.",
+        "variant_not_found": "No se puede encontrar la variante",
+        "variant_requires_selling_plan": "La variante solo se puede comprar con un plan de venta.",
+        "selling_plan_not_available_for_company_locations": "Solo la compra única está disponible para pedidos B2B",
+        "digital_product_not_available_for_company_locations": "Este artículo no se puede agregar a un pedido B2B",
+        "selling_plan_not_applicable": "No se puede aplicar el plan de ventas a la variante",
+        "shipping_address_not_required": "Este carrito no requiere envío",
+        "shipping_address_invalid": "Hubo un problema al calcular las tarifas de envío. Continúe con el pago para elegir una tarifa de envío antes de completar su pedido.",
+        "bundle_requires_components": "El paquete de productos '%{name}' no se puede agregar al carrito.",
+        "gift_card_with_components_not_supported": "El paquete de productos '%{name}' no se puede agregar al carrito."
+      },
+      "storefront": {
+        "invalid_password": "Contraseña incorrecta, inténtalo de nuevo."
+      },
+      "tags": {
+        "add_articles": "Búsqueda restringida a artículos que también tengan la etiqueta %{tag}",
+        "add_products": "Limite la selección a los productos que coincidan con la etiqueta %{tag}",
+        "remove_articles": "Amplíe la búsqueda a artículos que no están etiquetados %{tag}",
+        "remove_products": "Eliminar etiqueta %{etiqueta}"
+      }
+    },
+    "email_marketing": {
+      "subscribed": {
+        "confirmation": "Gracias por suscribirte a nuestra lista de correo.",
+        "disclaimer": "Puedes darte de baja en cualquier momento.",
+        "unsubscribe": "Darse de baja"
+      },
+      "unsubscribed": {
+        "confirmation": "Te has dado de baja de nuestra lista de correo.",
+        "disclaimer": "No recibirá más actualizaciones de marketing de nuestra parte. Puedes volver a suscribirte en cualquier momento.",
+        "preview": "Está obteniendo una vista previa de lo que los clientes verán cuando se den de baja."
+      },
+      "open_tracking": {
+        "opt_in": {
+          "opted_in_html": "<b>Ha optado por el seguimiento de correos electrónicos abiertos.<\/b>",
+          "visibility": "Las tasas de apertura de correo electrónico se informarán de forma anónima. Solo veremos si ha abierto un correo electrónico como parte de una tasa de apertura de correo electrónico agregada.",
+          "opt_out_html": "Puede <a style=\"text-decoration:underline;\" href=\"%{link}\">cancelar<\/a> el seguimiento de correos electrónicos abiertos si no desea compartir esta información.",
+          "preview_bar": "Está obteniendo una vista previa de lo que los clientes verán cuando opten por el seguimiento de correos electrónicos abiertos."
+        },
+        "opt_out": {
+          "opted_out_html": "<b>Has optado por no recibir seguimiento de correos electrónicos abiertos.<\/b>",
+          "visibility": "No veremos si ha abierto nuestros correos electrónicos.",
+          "opt_in_html": "<a style=\"text-decoration:underline;\" href=\"%{link}\">Optar<\/a> por el seguimiento de correos electrónicos abiertos.",
+          "preview_bar": "Está obteniendo una vista previa de lo que verán los clientes cuando opten por no participar en el seguimiento de correos electrónicos abiertos."
+        },
+        "no_longer_track": {
+          "status_html": "<b>Ya no rastreamos ningún correo electrónico abierto.<\/b>",
+          "privacy_policy": "Después de enviar este correo electrónico, actualizamos nuestra política de privacidad y ya no rastreamos las aperturas."
+        },
+        "track": {
+          "status_html": "<b>Se informa el seguimiento de apertura de correo electrónico.<\/b>",
+          "visibility": "Solo veremos si ha abierto el correo electrónico, como parte de la tasa total de apertura de correo electrónico."
+        },
+        "updated_policy": {
+          "status_html": "<b>Se informa el seguimiento de apertura de correo electrónico.<\/b>",
+          "visibility": "Hemos actualizado nuestra política y ahora rastreamos las aperturas de correos electrónicos. Las tasas de apertura de correo electrónico se informarán de forma anónima. Solo veremos si ha abierto un correo electrónico como parte de la tasa total de apertura de correo electrónico.",
+          "opt_out_html": "Si no desea compartir esta información, puede <a style=\"text-decoration:underline;\" href=\"%{link}\">darse de baja.<\/a>"
+        }
+      }
     }
   },
   "customer_accounts": {
@@ -1139,7 +1282,14 @@
     },
     "payment_methods": {
       "edit_payment_method": {
-        "future_purchases_notice": "Este método de pago se guardará para futuras compras."
+        "future_purchases_notice": "Este método de pago se guardará para futuras compras.",
+        "title": "Editar método de pago",
+        "save_payment_method_button": "Ahorrar",
+        "cancel_edit_payment_method_button": "Cancelar",
+        "payment_method_updated_toast": "Método de pago actualizado",
+        "billing_address": "Dirección de Envio",
+        "billing_address_add_new": "Agregar nuevo",
+        "billing_address_choose_from_list": "elegir de la lista"
       },
       "card_fields": {
         "card_number_label": "Número de tarjeta",
@@ -1200,6 +1350,61 @@
           "choose_billing_address_from_list_button_accessibility_label": "Elija una dirección de facturación de la lista",
           "missing_billing_address_error_message": "Por favor, especifique una dirección de facturación"
         }
+      },
+      "title": "Métodos de pago",
+      "add_payment_method_button": "Añadir método de pago",
+      "add_payment_method_banner": "Agregue un método de pago para un pago más rápido o servicios preautorizados",
+      "no_payment_methods_banner": "No se agregaron métodos de pago",
+      "edit_payment_method_button_accessibility_label": "Edite {{paymentMethodName}} que termina en {{lastDigits}}",
+      "edit_payment_method_brand_button_accessibility_label": "Editar {{paymentMethodName}}",
+      "delete_payment_method_button": "Borrar",
+      "delete_payment_method_button_accessibility_label": "Eliminar {{paymentMethodName}}",
+      "back_button": "Atrás",
+      "back_button_accessibility_label": "Volver a {{paymentMethodStepTitle}}",
+      "generic_card": "Tarjeta",
+      "expiration_warning_button_accessibility_label": "Mostrar advertencia de caducidad para {{paymentMethodName}} que termina en {{lastDigits}}",
+      "expires_soon": "Esta tarjeta expirará pronto",
+      "expired": "Esta tarjeta ya expiró",
+      "card_update_consent": "Este método de pago se guardará para futuras compras.",
+      "digital_wallet_title": "Monedero Digital",
+      "credit_or_debit_card_title": "Tarjeta de crédito o débito",
+      "google_pay": {
+        "loading": "Cargando Google Pay",
+        "errors": {
+          "generic": "Hubo un problema con Google Pay. Vuelve a intentarlo o utiliza otro método de pago.",
+          "missing_billing_address": "Google Pay requiere una dirección de facturación. Agregue uno a su cuenta."
+        }
+      },
+      "apple_pay": {
+        "loading": "Cargando pago de Apple",
+        "errors": {
+          "generic": "Hubo un problema con Apple Pay. Vuelve a intentarlo o utiliza otro método de pago.",
+          "not_available": "Apple Pay no está disponible en este dispositivo.",
+          "missing_billing_address": "Apple Pay requiere una dirección de facturación. Agregue uno a su cuenta."
+        }
+      },
+      "payment_details": {
+        "title": "Detalles del método de pago",
+        "credit_card_details_accessibility_label": "que termina en {{lastDigits}}",
+        "billing_title": "Dirección de Envio",
+        "card_info_title": "Información de la tarjeta",
+        "payment_method_expiring_on": "Con vencimiento el {{expiryDate}}",
+        "payment_method_expired_on": "Caducó el {{expiryDate}}",
+        "preauthorized_payments": "Pagos preautorizados",
+        "close_payment_modal": "Cerca",
+        "close_payment_modal_accessibility_label": "Cerrar modal de detalles del método de pago",
+        "payment_method_not_found_error": "No se puede encontrar el método de pago",
+        "payment_details_loading": "Cargando detalles del método de pago",
+        "pre_authorized_payments": "Pagos preautorizados",
+        "total_amount_of_subscription_line_items_left": "y {{total}} más",
+        "total_amount_of_subscription_line_items_left_accessibility_label": "{{totalItems}} elementos en total, mostrando {{totalItemsToDisplay}} elementos.",
+        "next_payment_due": "Próximo pago con vencimiento {{dueDateInMonthDayYear}}",
+        "edit_payment_method_button": "Editar",
+        "edit_payment_method_button_accessibility_label": "Editar método de pago que termina en {{lastDigits}}",
+        "loading_shop_pay": "Cargando Shop Pay",
+        "invalid_payment_method": "Método de pago no válido",
+        "invalid_payment_method_message": "Utilice una nueva tarjeta de crédito para seguir recibiendo los próximos pedidos.",
+        "replace_payment_method": "Reemplazar método de pago"
       }
     },
     "payment_method_brands": {
@@ -1219,6 +1424,98 @@
       "subscription_policy": "política de suscripción",
       "terms_of_sale": "Condiciones de venta",
       "terms_of_service": "Términos de servicio"
+    },
+    "B2B": {
+      "draft_order_details": {
+        "payment_status": {
+          "canceled": {
+            "title": "Pago cancelado",
+            "description": "No se le cobrará."
+          },
+          "pay_now": "Pagar ahora",
+          "pay_now_accessibility_label": "Pague ahora por el pedido {{orderName}}",
+          "title": "Estado de pago"
+        },
+        "order_timeline": {
+          "expand_events_label": "Mostrar detalles",
+          "expand_events_accessibility_label": "Mostrar detalles del borrador del pedido",
+          "hide_events_label": "Ocultar detalles",
+          "hide_events_accessibility_label": "Ocultar detalles del borrador del pedido"
+        },
+        "subtitle": "Enviado {{date}}",
+        "title": "Pedido {{name}}"
+      },
+      "payment_methods": {
+        "payment_delete": {
+          "description_without_replacement": "Este método de pago ya no estará disponible para futuras compras desde esta ubicación.",
+          "description_with_replacement": "Eliminar este método de pago afectará los pagos preautorizados para esta ubicación. Reemplácelo con un método de pago alternativo para continuar recibiendo los próximos pedidos."
+        },
+        "payment_details": {
+          "order_label": "Pedido {{name}}",
+          "draft_label": "Borrador de orden {{name}}"
+        }
+      },
+      "purchase_order_number": {
+        "add_accessibility_label": "Añadir número de orden de compra",
+        "add_modal_title": "Añadir número de orden de compra",
+        "cancel": "Cancelar",
+        "close_modal_accessibility_label": "Cerrar modal de número de orden de compra",
+        "discard": "Desechar",
+        "discard_changes_modal_title": "¿Descartar los cambios?",
+        "edit_accessibility_label": "Editar número de orden de compra",
+        "edit_modal_title": "Editar número de orden de compra",
+        "empty_state": "Sin número de orden de compra",
+        "modal_po_number_input_label": "Numero postal",
+        "modal_po_number_input_max_length_error": "Los números de orden de compra tienen un máximo de {{maxLength}} caracteres.",
+        "save": "Ahorrar",
+        "title": "PO # {{poNumber}}"
+      }
+    },
+    "errors": {
+      "address_deletion_error": {
+        "description": "Hubo un problema al eliminar esta dirección. Vuelva a intentarlo o actualice la página."
+      },
+      "addresses_loading_issue": {
+        "description": "Error de conexión. Comprueba tu conexión a Internet e inténtalo de nuevo."
+      },
+      "banner_title": {
+        "one": "Hay {{count}} error",
+        "other": "Hay {{count}} errores"
+      },
+      "failed_address_creation": {
+        "description": "Hubo un problema al crear su dirección. Intente actualizar esta página o verifique su conexión a Internet."
+      },
+      "failed_address_update": {
+        "description": "Hubo un problema al actualizar su dirección. Intente actualizar esta página o verifique su conexión a Internet."
+      },
+      "load_orders_error": {
+        "title": "No se pueden cargar pedidos",
+        "description": "Vuelva a intentarlo o vuelva más tarde.",
+        "retry_button": "Rever"
+      },
+      "load_paypal_error": {
+        "description": "Hay un problema al cargar PayPal. Inténtalo de nuevo."
+      },
+      "no_access": {
+        "back_to_authentication_link": "Iniciar sesión en una cuenta diferente",
+        "description": "No estás registrado como cliente B2B con {{shopName}}",
+        "title": "Sin acceso"
+      },
+      "no_access_to_locations": {
+        "description": "No tienes acceso a ninguna ubicación."
+      },
+      "not_found": {
+        "description": "Verifique la URL o vuelva a intentarlo en unos minutos.",
+        "title": "Hay un problema al cargar esta página"
+      },
+      "order_not_found": {
+        "description": "Este pedido no existe o no tienes permiso para verlo.",
+        "title": "Pedido no encontrado"
+      },
+      "profile_update_error": {
+        "description": "Hubo un problema al actualizar tu perfil. Intente actualizar esta página o verifique su conexión a Internet."
+      },
+      "retry_action_label": "Rever"
     }
   },
   "accessibility": {
