@@ -2,6 +2,10 @@ html {
   font-family: sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* PAGE */
 
 .page__main {
@@ -16,18 +20,37 @@ html {
   padding-inline: 20px;
 }
 
+.shopify-section {
+  padding-block: 30px;
+}
+
+/* MEDIA */
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
 /* TYPE */
+
+:is(h1, h2, h3, h4, h5, h6):first-child { margin-top: 0; }
+:is(h1, h2, h3, h4, h5, h6):last-child { margin-bottom: 0; }
 
 /* BUTTONS */
 
-button {
+.btn {
+  display: inline-block;
   background: black;
   color: white;
   padding: 10px 12px;
   border: 0;
   font-weight: bold;
   font-size: inherit;
+  text-decoration: none;
+  text-align: center;
 }
+
+.btn--full { width: 100%; }
 
 /* FORMS */
 
@@ -71,11 +94,45 @@ input, select, textarea {
   background: lightgreen;
 }
 
-.cp-message__body :is(h1, h2, h3, h4, h5, h6, p, ul, li):first-child { margin-top: 0; }
-.cp-message__body :is(h1, h2, h3, h4, h5, h6, p, ul, li):last-child { margin-bottom: 0; }
+.cp-message__body :is(p, ul, li):first-child { margin-top: 0; }
+.cp-message__body :is(p, ul, li):last-child { margin-bottom: 0; }
 
 .cp-message__body ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+/* FEATURES */
+
+.cp-features {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.cp-features__item {
+  background: #ccc;
+  padding: 10px;
+}
+
+/* CARD */
+
+.cp-card__title {
+  margin: 0;
+}
+
+.cp-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cp-card__image {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  margin-block: 5px;
+}
+
+.cp-card__action {
+  margin: 0;
 }

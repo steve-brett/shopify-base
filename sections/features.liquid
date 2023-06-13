@@ -1,8 +1,22 @@
-<section id="s-{{ section.id }}" class="section section--featured">
-  <div class="cp-features">
-    @TODO
+{% if section.blocks.size > 0 %}
+  <div class="layout">
+
+    {% if section.settings.title != blank %}
+      <h2>{{ section.settings.title }}</h2>
+    {% endif %}
+          
+    <div class="cp-features">
+      {% for block in section.blocks %}
+
+        <div class="cp-features__item">
+          {% render 'cp-card', title: block.settings.title, image: block.settings.image, url: block.settings.url %}
+        </div>
+
+      {% endfor %}
+    </div>
+
   </div>
-</section>
+{% endif %}
 
 {% schema %}
 {
@@ -11,9 +25,10 @@
     {
       "type": "text",
       "id": "title",
-      "label": "Text"
+      "label": "Title"
     }
   ],
+  "max_blocks": 3,
   "blocks": [
     {
       "type": "item",
@@ -22,7 +37,7 @@
         {
           "type": "text",
           "id": "title",
-          "label": "Text"
+          "label": "Title"
         },
         {
           "type": "image_picker",
@@ -35,13 +50,6 @@
           "label": "URL"
         }
       ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Featured",
-      "settings": {
-      }
     }
   ]
 }

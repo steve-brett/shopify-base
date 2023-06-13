@@ -1,7 +1,7 @@
-{%- liquid
+{% liquid
   assign header_override = header_override | default: false
   assign footer_override = footer_override | default: false
--%}
+%}
 
 <!doctype html>
 <html class="no-js tpl-{{ template.name }}" lang="{{ request.locale.iso_code }}">

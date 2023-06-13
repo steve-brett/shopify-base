@@ -1,0 +1,27 @@
+<div class="cp-card">  
+  {% if title != blank %}
+    <h3 class="cp-card__title">
+      {% if url != blank %}
+        <a href="{{ url }}">{{ title }}</a>
+      {% else %}
+        {{ title }}
+      {% endif %}
+    </h3>
+  {% endif %}
+
+  {% if image != blank %}
+    <img 
+      class="cp-card__image"
+      src="{{ image | image_url: width: image.width }}"
+      width="{{ image.width }}"
+      height="{{ image.height }}"
+      alt="{{ image.alt }}"
+      loading="lazy"
+    >
+  {% endif %}
+
+  {% if url != blank %}
+    <p class="cp-card__action"><a href="{{ url }}" class="btn btn--full">{{ 'general.view' | t }}</a></p>
+  {% endif %}
+
+</div>

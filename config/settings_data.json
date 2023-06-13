@@ -1,2 +1,59 @@
 {
+  "current": {
+    "contact_first_name_required": false,
+    "contact_last_name_required": false,
+    "contact_phone_required": false,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+        }
+      },
+      "features": {
+        "type": "features",
+        "blocks": {
+          "765dc059-4a4a-4a78-8850-736a130477c1": {
+            "type": "item",
+            "settings": {
+              "title": "Product A",
+              "image": "shopify:\/\/shop_images\/915V6d75aWL._AC_UL1500.jpg",
+              "url": "#"
+            }
+          },
+          "0ffc5f00-b4f0-4dcb-b115-60c571ec9ff0": {
+            "type": "item",
+            "settings": {
+              "title": "Product B",
+              "image": "shopify:\/\/shop_images\/91keI48SM7L._AC_UL1500.jpg",
+              "url": "#"
+            }
+          },
+          "58360445-2bd1-4e8c-a086-1c838c7870f3": {
+            "type": "item",
+            "settings": {
+              "title": "Product C",
+              "image": "shopify:\/\/shop_images\/71qjJDAw-BL._AC_UL1500.jpg",
+              "url": "#"
+            }
+          }
+        },
+        "block_order": [
+          "765dc059-4a4a-4a78-8850-736a130477c1",
+          "0ffc5f00-b4f0-4dcb-b115-60c571ec9ff0",
+          "58360445-2bd1-4e8c-a086-1c838c7870f3"
+        ],
+        "settings": {
+          "title": "Featured products"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  }
 }
