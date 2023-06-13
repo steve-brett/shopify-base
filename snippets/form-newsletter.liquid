@@ -1,13 +1,19 @@
 {% form 'customer', id: id %}
-  {% if form.posted_successfully? %}
-    <p><strong>Thanks for subscribing!</strong></p>
-  {% endif %}
 
-  {% render 'cp-message-errors', errors: form.errors %}
+  {% if form.posted_successfully? %}
+
+    <p><strong>Thanks for subscribing!</strong></p>
+
+    {% else %}
+
+    {% render 'cp-message-errors', errors: form.errors %}
+    
+    <input type="hidden" name="contact[tags]" value="prospect,newsletter"/>
+    <div class="field">    
+      <input type="email" id="{{ id }}-email" name="contact[email]" placeholder="{{ 'newsletter.label' | t }}" required>    
+    </div>
+    <button class="btn">{{ 'newsletter.subscribe' | t }}</button>
   
-  <input type="hidden" name="contact[tags]" value="prospect,newsletter"/>
-  <div class="field">    
-    <input type="email" id="{{ id }}-email"name="contact[email]" placeholder="{{ 'newsletter.label' | t }}" required>    
-  </div>
-  <button class="btn">{{ 'newsletter.subscribe' | t }}</button>
+  {% endif %}
+  
 {% endform %}
