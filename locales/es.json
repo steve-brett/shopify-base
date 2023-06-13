@@ -1136,6 +1136,118 @@
         }
       },
       "add_button": "Agregar"
+    },
+    "payment_methods": {
+      "edit_payment_method": {
+        "future_purchases_notice": "Este método de pago se guardará para futuras compras."
+      },
+      "card_fields": {
+        "card_number_label": "Número de tarjeta",
+        "card_number_placeholder": "Número de tarjeta",
+        "name_on_card_label": "Nombre en la tarjeta",
+        "name_on_card_placeholder": "Nombre en la tarjeta",
+        "card_expiry_label": "Fecha de caducidad (MM \/ AA)",
+        "card_expiry_placeholder": "Fecha de caducidad (MM \/ AA)",
+        "card_verification_value_label": "Código de seguridad",
+        "card_verification_value_placeholder": "Código de seguridad",
+        "card_start_label": "Fecha de emisión (MM \/ AA)",
+        "card_start_placeholder": "Fecha de emisión (MM \/ AA)",
+        "tooltip": {
+          "tooltip_accessibility_label": "Más información",
+          "card_verification_value_explanation_amex": "Código de seguridad de 4 dígitos en el frente de su tarjeta",
+          "card_verification_value_explanation_other": "Código de seguridad de 3 dígitos en el reverso de su tarjeta",
+          "card_verification_value_explanation": "El código de seguridad de 3 dígitos generalmente se encuentra en el reverso de su tarjeta. Las tarjetas American Express tienen un código de 4 dígitos ubicado en el frente.",
+          "card_security_notice": "Todas las transacciones son seguras y encriptadas."
+        },
+        "field_errors": {
+          "credit_card_name_invalid": "Ingrese su nombre exactamente como está escrito en su tarjeta",
+          "credit_card_number_invalid": "Introduce un número de tarjeta válido",
+          "credit_card_expiry_invalid": "Introduce una fecha de caducidad válida de la tarjeta",
+          "credit_card_verification_value_blank": "Introduce el CVV o código de seguridad de tu tarjeta"
+        }
+      },
+      "payment_delete": {
+        "title": "Eliminar método de pago",
+        "description_without_replacement": "Este método de pago ya no estará disponible para futuras compras.",
+        "description_with_replacement": "Eliminar este método de pago afectará los pagos preautorizados. Opcionalmente puedes sustituirlo por otro método de pago para seguir recibiendo próximos pedidos.",
+        "warning_message_with_replacement": {
+          "with_pending_orders_and_subscriptions": "Eliminar este método de pago afectará los pagos preautorizados. A menos que seleccione un método de pago alternativo, se seguirá cobrando a este método de pago los saldos pendientes de los pedidos existentes. Seleccionar un método de pago alternativo le permitirá recibir los próximos pedidos de suscripción sin interrupción.",
+          "with_pending_orders": "Eliminar este método de pago lo eliminará de su cuenta y ya no estará disponible para futuras compras. A menos que seleccione un método de pago alternativo, aún se le cobrará por cualquier saldo pendiente en los pedidos existentes.",
+          "with_subscriptions": "Eliminar este método de pago afectará los pagos preautorizados. Reemplácelo con un método de pago alternativo para continuar recibiendo los próximos pedidos."
+        },
+        "warning_message_without_replacement": {
+          "with_pending_orders_and_subscriptions": "Eliminar este método de pago afectará los pagos preautorizados. Este método de pago aún se cobrará por los saldos pendientes de los pedidos existentes, pero no recibirá los próximos pedidos de suscripción. Añade un método de pago alternativo para seguir recibiendo pedidos de suscripción.",
+          "with_pending_orders": "Eliminar este método de pago lo eliminará de su cuenta y ya no estará disponible para futuras compras. Todavía se cobrará por los saldos pendientes de los pedidos existentes.",
+          "with_subscriptions": "Eliminar este método de pago afectará los pagos preautorizados. Añade un método de pago alternativo para seguir recibiendo próximos pedidos."
+        },
+        "payment_method_selector_placeholder": "Seleccione un método de pago de reemplazo (opcional)",
+        "payment_method_selector_no_alternative_payment": "Sin método de reemplazo",
+        "replace_method_with_new_method_description": "Su {{currentPaymentMethodName}} se eliminará y se reemplazará con su {{newPaymentMethodName}} .",
+        "error_when_deleting": "Lo sentimos, pero algo salió mal y no pudimos eliminar este método de pago. Vuelva a intentarlo más tarde o actualice la página.",
+        "delete_and_replace_button": "Eliminar y reemplazar",
+        "delete_and_replace_button_accessibility_label": "Elimine {{currentPaymentMethodName}} y reemplácelo con {{newPaymentMethodName}} .",
+        "deleted_successfully": "Método de pago eliminado con éxito.",
+        "loading_available_payment_methods_accessibility_label": "Cargando métodos de pago disponibles"
+      },
+      "add_payment_method": {
+        "title": "Añadir método de pago",
+        "payment_method_added_confirmation": "Método de pago agregado",
+        "billing_address": {
+          "title": "Dirección de Envio",
+          "add_billing_address_button": "Agregar nuevo",
+          "add_billing_address_button_accessibility_label": "Agregar nueva dirección de facturación",
+          "choose_billing_address_from_list_button": "elegir de la lista",
+          "choose_billing_address_from_list_button_accessibility_label": "Elija una dirección de facturación de la lista",
+          "missing_billing_address_error_message": "Por favor, especifique una dirección de facturación"
+        }
+      }
+    },
+    "payment_method_brands": {
+      "mastercard": "Tarjeta MasterCard",
+      "discover": "Descubrir",
+      "dinersclub": "club de comensales",
+      "hipercard": "hipertarjeta",
+      "shoppay": "Comprar Pagar",
+      "applepay": "pago de manzana",
+      "googlepay": "Pago de Google"
+    },
+    "shop_policies": {
+      "legal_notice": "Aviso Legal",
+      "privacy_policy": "Política de privacidad",
+      "refund_policy": "Politica de reembolso",
+      "shipping_policy": "Politica de envios",
+      "subscription_policy": "política de suscripción",
+      "terms_of_sale": "Condiciones de venta",
+      "terms_of_service": "Términos de servicio"
     }
+  },
+  "accessibility": {
+    "skip_to_content": "saltar al contenido"
+  },
+  "general": {
+    "form_error": "¡Huy! Algo salió mal!",
+    "view": "Vista"
+  },
+  "nav": {
+    "cart": "Cesta",
+    "login": "Acceso",
+    "account": "Cuenta"
+  },
+  "footer": {
+    "copyright": "Derechos de autor {{ shop_name }}"
+  },
+  "newsletter": {
+    "label": "Correo electrónico",
+    "subscribe": "Suscribir"
+  },
+  "contact": {
+    "label_first_name": "Nombre de pila",
+    "label_last_name": "Apellido",
+    "label_phone": "Teléfono",
+    "label_email": "Correo electrónico",
+    "label_order_number": "Número de orden",
+    "label_message": "Mensaje",
+    "success_title": "Gracias, su mensaje fue enviado con éxito.",
+    "success_body_html": "<p>Estaremos en contacto.<\/p>"
   }
 }
