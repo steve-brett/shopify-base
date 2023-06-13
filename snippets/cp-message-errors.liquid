@@ -1,8 +1,4 @@
-{% liquid 
-  unless error_title
-    assign error_title = 'general.form_error' | t
-  endunless
-%}
+{% assign error_title = error_title | default: 'general.form_error' | t %}
 
 {% if errors %}
   {% capture error_body %}{{ errors | default_errors }}{% endcapture %}

@@ -1,1 +1,4 @@
-{{ form.errors | default_errors }}
+<div class="cp-message cp-message--{{ type | default: 'info' }}">
+  {% if title != blank %}<h2 class="cp-message__title">{{ title }}</h2>{% endif %}
+  {% if body != blank %}{{ body }}{% endif %}
+</div>

@@ -1,5 +1,7 @@
 {% form 'contact' %}
-  {{ form.errors | default_errors }}
+  
+  {% comment %}{{ form.errors | default_errors }}{% endcomment %}  
+  {% render 'cp-message-errors', errors: form.errors %}
 
   <div class="field">
     <label for="first-name">First name</label>
