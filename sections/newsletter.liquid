@@ -1,0 +1,30 @@
+<div class="layout">
+
+  {% if section.settings.title != blank %}
+    <h2>{{ section.settings.title }}</h2>
+  {% endif %}
+        
+  {% render 'form-newsletter', id: section.id %}
+
+</div>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Newsletter"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter",
+      "settings": {
+      }
+    }
+  ]
+}
+{% endschema %}

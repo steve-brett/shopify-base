@@ -7,11 +7,15 @@
       "header": {
         "type": "header",
         "settings": {
+          "logo_width": "120px",
+          "menu": "main-menu"
         }
       },
       "footer": {
         "type": "footer",
         "settings": {
+          "menu": "footer",
+          "show_social": true
         }
       },
       "features": {

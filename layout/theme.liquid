@@ -32,14 +32,20 @@
 
     {{ content_for_header }}
 
+    <style>
+      :root {
+        --clr-primary: {{ shop.brand.colors.primary[0].background }};
+        --clr-primary-contrast: {{ shop.brand.colors.primary[0].foreground }};
+      }
+    </style>
+
     <link rel="stylesheet" href="{{ 'style.css' | asset_url }}" type="text/css" rel="preload" as="style" media="all">            
 
     {% render 'tracking-head' %}
   </head>
-  
   <body>
 
-    <a class="accessible-hide-focus" href="#content">{{ 'accessibility.skip_to_content' | t }}</a>    
+    <a class="accessible-hide" href="#content">{{ 'accessibility.skip_to_content' | t }}</a>    
 
     <div class="page" id="top">      
 
@@ -53,6 +59,7 @@
 
       <main class="page__main" id="content" tabindex="-1">        
         {{ content_for_layout }}
+        {% section 'newsletter' %}
       </main>
 
       <footer class="page__footer">

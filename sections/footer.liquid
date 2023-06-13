@@ -1,12 +1,50 @@
-<section id="s-{{ section.id }}" class="cp-footer">
-  @TODO
-</section>
+<div class="cp-footer">
+  <div class="layout">
+    <div class="cp-footer__inner">
+
+      <p class="cp-footer__legal">© {{ 'now' | date: '%Y' }} {{ 'footer.copyright' | t: shop_name: shop.name }}</p>
+
+      <nav class="cp-footer__nav">
+        <ul>
+          {% for link in linklists[section.settings.menu].links %}
+            <li>
+              <a href="{{ link.url }}" class="{% if link.active or link.child_active %}is-active{% endif %}">
+                {{ link.title }}
+              </a>              
+            </li>
+          {% endfor %}
+          {% if section.settings.show_social %}
+            {% for link in shop.brand.metafields.social_links %}              
+              <li>
+                <a href="{{ link.last }}">
+                  {% comment %} {%- capture filename -%}icon-social-{{ link.first }}.svg{%- endcapture -%}
+                  <img src="{{ filename | asset_url }}" alt="{{ link.first | capitalise }}" width="32" height="32" loading="lazy"> {% endcomment %}
+                  {% render 'svg', id: link.first %}
+                </a>
+              </li>              
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </nav>
+
+    </div>
+  </div>
+</div>
 
 {% schema %}
 {
   "name": "Footer",
   "settings": [
-
+    {
+      "id": "menu",
+      "type": "link_list",
+      "label": "Menu"
+    },
+    {
+      "id": "show_social",
+      "type": "checkbox",
+      "label": "Show social"
+    }
   ]
 }
 {% endschema %}

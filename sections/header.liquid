@@ -1,12 +1,71 @@
-<section id="s-{{ section.id }}" class="cp-header">
-  @TODO
-</section>
+<div class="cp-header" style="{% if section.settings.logo_width != blank %}--logo-width: {{ section.settings.logo_width }};{% endif %}">
+  <div class="layout">
+    <div class="cp-header__inner">
+
+      <a href="{{ routes.root_url }}" class="cp-header__logo">
+        <img
+          src="{{ shop.brand.logo | image_url: width: shop.brand.logo.width }}"
+          alt="{{ shop.name }}"
+          width="{{ shop.brand.logo.width }}"
+          height="{{ shop.brand.logo.height }}"
+          loading="lazy"
+        >
+      </a>
+
+      <nav class="cp-header__nav">
+        <ul class="cp-header__nav__list">
+          {% for link in linklists[section.settings.menu].links %}
+            <li class="cp-header__nav__item">
+              <a href="{{ link.url }}" class="{% if link.active or link.child_active %}is-active{% endif %}">
+                {{ link.title }}
+              </a>
+              {% if link.links.size > 0 %}
+                <ul class="cp-header__nav__sublist">
+                  {% for child_link in link.links %}
+                    <li class="cp-header__nav__subitem">
+                      <a href="{{ child_link.url }}" class="{% if child_link.active or child_link.child_active %}is-active{% endif %}">
+                        {{ child_link.title }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+          {% if shop.customer_accounts_enabled %}
+            <li>
+              <a href="{{ routes.account_url }}">
+                {% if customer %}{{ 'nav.account' | t }}{% else %}{{ 'nav.login' | t }}{% endif %}
+              </a>
+            </li>
+          {% endif %}
+          <li>
+            <a href="{{ routes.cart_url }}" class="{% if request.page_type == 'cart' %}is-active{% endif %}">              
+              {{ 'nav.cart' | t }}
+              (<span data-cart-count>{{ cart.item_count }}</span>)
+            </a>
+          </li>
+        </ul>
+      </nav>
+    
+    </div>
+  </div>
+</div>
 
 {% schema %}
 {
   "name": "Header",
   "settings": [
-
+    {
+      "id": "logo_width",
+      "type": "text",
+      "label": "Logo width"
+    },
+    {
+      "id": "menu",
+      "type": "link_list",
+      "label": "Menu"
+    }
   ]
 }
 {% endschema %}

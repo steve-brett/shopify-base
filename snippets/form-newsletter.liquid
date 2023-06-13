@@ -1,0 +1,11 @@
+{% form 'customer', id: id %}
+  {% if form.posted_successfully? %}
+    <p><strong>Thanks for subscribing!</strong></p>
+  {% endif %}
+  
+  <input type="hidden" name="contact[tags]" value="prospect,newsletter"/>
+  <div class="field">    
+    <input type="email" id="{{ id }}-email" placeholder="{{ 'newsletter.label' | t }}" required>    
+  </div>
+  <button class="btn">{{ 'newsletter.subscribe' | t }}</button>
+{% endform %}
