@@ -161,7 +161,52 @@
             "one": "%{count} elemento",
             "other": "%{contar} elementos"
           }
-        }
+        },
+        "title": "Resumen del pedido",
+        "order_name_label": "Pedido %{nombre}",
+        "shopping_cart_label": "Carro de la compra",
+        "discount_title": "Descuento",
+        "discount_label": "Código de descuento",
+        "discount_placeholder": "Código de descuento",
+        "gift_card_title": "Tarjeta de regalo",
+        "gift_card_label": "Tarjeta de regalo",
+        "gift_card_placeholder": "Tarjeta de regalo",
+        "gift_card_and_discount_title": "Tarjeta de regalo o código de descuento",
+        "gift_card_and_discount_label": "Tarjeta de regalo o código de descuento",
+        "gift_card_and_discount_placeholder": "Tarjeta de regalo o código de descuento",
+        "remove_gift_card_label": "Tarjeta de regalo clara",
+        "remove_discount_label": "Eliminar descuento",
+        "free_shipping_discount_label": "Envío gratis",
+        "applied_free_shipping_discount_label": "Aplicado",
+        "apply_discount_button_label": "Aplicar",
+        "applied_discount_message": "%{amount} de descuento en el precio total del pedido",
+        "discount_has_been_applied": "Se ha aplicado el descuento",
+        "discount_has_been_removed": "Se eliminó el descuento",
+        "gift_card_has_been_applied": "Se ha aplicado la tarjeta de regalo",
+        "gift_card_has_been_removed": "Se ha eliminado la tarjeta de regalo",
+        "gift_card_subscriptions_notice": "Las tarjetas de regalo solo se aplicarán a su primer pago",
+        "discount_already_applied": "Se ha aplicado un descuento a este pedido. No se puede agregar otro descuento.",
+        "cart_does_not_meet_discount_requirements_notice": "El código de descuento <strong style=\"text-transform:uppercase\">%{code}<\/strong> no es válido para los artículos en su carrito",
+        "discount_requires_customer_notice": "Ingrese su información de envío para aplicar el código de descuento <strong style=\"text-transform:uppercase\">%{code}<\/strong>",
+        "customer_does_not_meet_discount_requirements_notice": "El código de descuento <strong style=\"text-transform:uppercase\">%{code}<\/strong> no está disponible para usted en este momento",
+        "shipping_information_does_not_meet_discount_requirements_notice": "El código de descuento <strong style=\"text-transform:uppercase\">%{code}<\/strong> no está disponible para su dirección de envío",
+        "customer_already_used_once_per_customer_discount_notice": "El código de descuento <strong style=\"text-transform:uppercase\">%{code}<\/strong> ya se ha utilizado",
+        "subtotal_label": "Total parcial",
+        "shipping_label": "Envío",
+        "pickup_label": "Levantar",
+        "no_pickup_location": "La recogida no está disponible para este pedido. Elija otro método de entrega.",
+        "tip_label": "Consejo",
+        "calculating_shipping": "Calculador…",
+        "shipping_default_value": "Calculado en el siguiente paso",
+        "shipping_pending_message": "No disponible aún",
+        "shipping_policy_link": "Costos de envío",
+        "taxes_label": "Impuestos",
+        "estimated_taxes_label": "Impuestos estimados",
+        "information_estimated_taxes_label": "Impuestos (estimados)",
+        "estimated_taxes_finalization_tooltip_content": "El impuesto final y el total se confirmarán por correo electrónico o mensaje de texto después de realizar el pedido.",
+        "order_total_label": "Total del pedido",
+        "total_outstanding_label": "Monto a pagar",
+        "free_total_label": "Gratis"
       },
       "shipping": {
         "title": "Envío",
@@ -634,6 +679,93 @@
             "first_name_too_long": "El nombre contiene demasiadas letras",
             "last_name_too_long": "El apellido contiene demasiadas letras"
           }
+        }
+      },
+      "delivery_options": {
+        "retail_method_definition": "Envío al por menor",
+        "none_method_definition": "Sin envío",
+        "subscription_pickup_information": "Este método de entrega se aplicará a todos los artículos de este pedido y a todos los pedidos futuros de esta suscripción."
+      },
+      "customer_account": {
+        "not_user_label": "¿No es %{first_name}?",
+        "have_an_account_label": "¿Ya tienes una cuenta?",
+        "sign_in_link_label": "Acceso",
+        "sign_out_link_label": "Cerrar sesión",
+        "save_my_information_label": "Guarda esta información para la próxima vez"
+      },
+      "stock": {
+        "page_title": "problemas de inventario",
+        "title": "Agotado",
+        "items_unavailable_notice": "Algunos artículos ya no están disponibles. Su carrito se ha actualizado.",
+        "product_column_header": "productos",
+        "quantity_column_header": "Cantidad",
+        "price_column_header": "Precio",
+        "status_column_header": "Estado",
+        "removed_from_cart_notice": "Eliminado del carrito",
+        "sold_out_label": "Agotado",
+        "reduced_label": "Reducido",
+        "reduced_with_quantity_label": "Solo queda %{quantity_disponible}",
+        "remove_from_cart_button_label": "Quitar del carrito",
+        "continue_shopping_button_label": "Continuar",
+        "go_back_to_cart_button_label": "volver a mi carrito",
+        "remove": "Eliminar",
+        "empty_cart_label": "Tu carrito esta vacío",
+        "quantity_update": {
+          "page_title": "Actualización de cantidad",
+          "title": "Actualización de cantidad",
+          "description": "Las cantidades disponibles para estos artículos han cambiado y se actualizan en su carrito."
+        },
+        "unpurchasable_product": {
+          "title": "Producto no adquirible",
+          "header": "Algunos artículos fueron eliminados de su carrito",
+          "message": "Estos artículos no están disponibles para pedidos B2B.",
+          "status_column_header": "No disponible"
+        },
+        "unpurchasable_product_generic": {
+          "title": "Producto no adquirible",
+          "header": "Algunos artículos fueron eliminados de su carrito",
+          "message": "Estos artículos no están disponibles.",
+          "status_column_header": "No disponible"
+        },
+        "unshippable_product": {
+          "title": "No hay entrega disponible",
+          "header": {
+            "one": "No hay entrega disponible para %{count} artículo",
+            "other": "No hay entrega disponible para %{count} artículos"
+          },
+          "message": {
+            "one": "Este artículo se eliminará de su carrito porque no hay métodos de envío disponibles para su dirección.",
+            "other": "Estos artículos se eliminarán de su carrito porque no hay métodos de entrega disponibles para su dirección."
+          },
+          "status_column_header": "No hay entrega"
+        }
+      },
+      "contextual_availability": {
+        "title": {
+          "one": "Producto no disponible",
+          "other": "Productos no disponibles"
+        },
+        "products_not_available": {
+          "one": "Este producto se eliminará de su carrito porque no está disponible en su país\/región.",
+          "other": "Estos productos se eliminarán de su carrito porque no están disponibles en su país o región."
+        },
+        "all_products_in_cart_unavailable": {
+          "one": "Este producto no está disponible en su país\/región.",
+          "other": "Estos productos no están disponibles en su país\/región."
+        },
+        "unavailable_label": "Indisponible"
+      },
+      "deliverability": {
+        "not_deliverable": {
+          "title": {
+            "one": "No hay entrega disponible para %{count} artículo",
+            "other": "No hay entrega disponible para %{count} artículos"
+          },
+          "message": {
+            "one": "Este artículo se eliminará de su carrito porque no hay métodos de envío disponibles para su dirección.",
+            "other": "Estos artículos se eliminarán de su carrito porque no hay métodos de entrega disponibles para su dirección."
+          },
+          "label": "No hay entrega"
         }
       }
     },
@@ -1434,7 +1566,51 @@
           },
           "pay_now": "Pagar ahora",
           "pay_now_accessibility_label": "Pague ahora por el pedido {{orderName}}",
-          "title": "Estado de pago"
+          "title": "Estado de pago",
+          "pending": {
+            "banner_overdue": {
+              "one": "Su pago tiene {{count}} días de retraso",
+              "other": "Su pago tiene {{count}} días de retraso"
+            },
+            "banner_due": {
+              "one": "Su pago vence en {{count}} día",
+              "other": "Su pago vence en {{count}} días"
+            },
+            "banner_due_today": "Su pago vence hoy",
+            "title": "Fecha de pago",
+            "title_with_date": "Pago vencido {{date}}",
+            "title_due_on_receipt": "Pago no vencido todavía",
+            "title_due_on_fulfillment": "Pago debido al cumplimiento",
+            "description_overdue": "Su pago está retrasado.",
+            "description_partially_paid": "Este pedido fue parcialmente pagado. Tienes un saldo restante.",
+            "description_authorized": "Su método de pago se cargará en la fecha de vencimiento, o puede pagar ahora.",
+            "description_due_on_receipt": "Recibirá una factura cuando venza el pago.",
+            "description_due_on_fulfillment": "El pago vence una vez que se completan todos los artículos de este pedido."
+          },
+          "draft": {
+            "description": "Los detalles de pago se deciden cuando se confirma el pedido.",
+            "title": "Pago aún no vencido",
+            "in_review": {
+              "description": "Los detalles de pago se deciden cuando se confirma el pedido.",
+              "title": "Pago aún no vencido"
+            },
+            "submitted": {
+              "description": "Envíe el pago para confirmar este pedido.",
+              "title": "Pagar para confirmar"
+            }
+          },
+          "paid": {
+            "title": "Pagado",
+            "title_with_date": "Pagado {{date}}",
+            "description": "Su pedido está totalmente pagado."
+          },
+          "refund": {
+            "title": "Reintegrado",
+            "title_with_date": "Reembolsado {{date}}",
+            "description_full_refund": "Recibiste un reembolso completo por este pedido.",
+            "description_single_refund": "Recibiste un reembolso parcial por este pedido.",
+            "description_multiple_refunds": "Recibiste reembolsos parciales por este pedido."
+          }
         },
         "order_timeline": {
           "expand_events_label": "Mostrar detalles",
@@ -1443,7 +1619,10 @@
           "hide_events_accessibility_label": "Ocultar detalles del borrador del pedido"
         },
         "subtitle": "Enviado {{date}}",
-        "title": "Pedido {{name}}"
+        "title": "Pedido {{name}}",
+        "draft_order_subtitle": "Confirmado {{date}} del pedido {{draftOrderName}}",
+        "loading": "Cargando detalles del pedido",
+        "loading_finished_accessibility_message": "Se han cargado los detalles del pedido."
       },
       "payment_methods": {
         "payment_delete": {
@@ -1469,6 +1648,93 @@
         "modal_po_number_input_max_length_error": "Los números de orden de compra tienen un máximo de {{maxLength}} caracteres.",
         "save": "Ahorrar",
         "title": "PO # {{poNumber}}"
+      },
+      "locations": {
+        "contact_name": "Nombre",
+        "contact_permissions": "permisos",
+        "contact_phone_number": "Número de teléfono",
+        "location_picker_label": "Nombre del lugar",
+        "location_picker_accessibility_label": "Nombre de la ubicación: {{locationName}}",
+        "net_payment_terms_description": "{{name}} : pagos con vencimiento dentro de {{numberOfDays}} días",
+        "own_role_contact_name": "Tú",
+        "pagination": {
+          "load_more": "Carga más",
+          "load_more_accessibility_label": "Cargar más ubicaciones"
+        },
+        "payment_details_title": "Detalles del pago",
+        "payment_terms": "Términos de pago",
+        "permissions_label": "Tus permisos",
+        "permissions_title": "permisos",
+        "section_title": "Ubicación",
+        "shipping_address_required": "Agregue una dirección de envío a esta ubicación para comenzar a realizar pedidos.",
+        "staff_and_permissions_title": "Personal y permisos",
+        "tax_details_title": "Detalles de impuestos",
+        "tax_id": "Identificación del impuesto",
+        "tax_exemptions": "Excepciones de impuestos",
+        "multiple_tax_exemptions": "{{taxExemptionsCount}} más",
+        "multiple_tax_exemptions_and": "y",
+        "tax_exemptions_modal_close": "Cerca",
+        "taxes_none": "Ninguno",
+        "tax_exemption_not_applicable": "N \/ A",
+        "tax_exemptions_modal_button_accessibility_label": "Ver todas las exenciones de impuestos"
+      },
+      "location_selection": {
+        "continue_to_store": "Continuar a la tienda",
+        "description": "Si ya tiene artículos en su carrito, el cambio de ubicación puede afectar los precios y las cantidades del carrito.",
+        "list_accessibility_label": "Lista de ubicaciones",
+        "list_item_without_address_accessibility_label": "{{name}} : Sin dirección",
+        "list_loading_accessibility_message": "Cargando lista de ubicaciones",
+        "list_loading_address_accessibility_message": "Dirección de carga para {{locationName}}",
+        "list_loading_finished_accessibility_message": "Se ha cargado la lista de ubicaciones",
+        "loading_store_accessibility_message": "ir a la tienda",
+        "no_location_title": "Solo pedidos personales",
+        "no_location_description": "Ya no tiene permiso para realizar pedidos para {{company}} . Todavía puedes hacer pedidos personales.",
+        "no_locations_found": "No se encontraron ubicaciones",
+        "search": "Buscar una ubicación",
+        "search_location_title": "Selecciona una ubicación",
+        "selection_cancel_button": "Cancelar",
+        "selection_confirmation_button": "Elegir la ubicación",
+        "title": "¿Para qué ubicación está comprando?",
+        "clear_search": "Borrar búsqueda",
+        "try_new_search": "Prueba una nueva búsqueda"
+      },
+      "addresses": {
+        "add_billing_address_button": "Añadir dirección de facturación",
+        "add_billing_address_section_accessibility_label": "Añadir dirección de facturación",
+        "add_shipping_address_button": "Añadir dirección de envío",
+        "add_shipping_address_section_accessibility_label": "Añadir dirección de envío",
+        "billing_address_card_title": "Dirección de Envio",
+        "cancel_adding_billing_address_accessibility_label": "Cancelar agregar dirección de facturación",
+        "cancel_adding_shipping_address_accessibility_label": "Cancelar agregar dirección de envío",
+        "save_new_billing_address_accessibility_label": "Guardar dirección de facturación",
+        "save_new_shipping_address_accessibility_label": "Guardar dirección de envío",
+        "shipping_address_card_title": "Dirección de envío"
+      },
+      "orders": {
+        "draft_order_list": {
+          "hide_all": "Ocultar todo",
+          "show_all": "Mostrar todo",
+          "hide_all_accessibility_label": "Ocultar todos los pedidos en revisión",
+          "show_all_accessibility_label": "Mostrar todos los pedidos en revisión",
+          "show_all_orders_in_review": "Mostrar todos los pedidos en revisión",
+          "show_less_orders_in_review": "Mostrar menos pedidos en revisión",
+          "title": "Pendiente",
+          "pending_tab_accessibility_label": {
+            "no_pending_orders": "No tienes pedidos pendientes",
+            "pending_orders": {
+              "one": "Tiene {{count}} pedido pendiente",
+              "other": "Tienes {{count}} pedidos pendientes"
+            },
+            "more_than_pagination_length": "Tienes más de {{count}} pedidos pendientes"
+          },
+          "pending_orders_count_more_than_pagination_length": "{{count}} +",
+          "pagination": {
+            "nav_accessibility_label": "Pedidos en los botones de navegación de revisión"
+          }
+        },
+        "order_list_column_headers_location": "Ubicación",
+        "order_list_column_headers_contact": "Contacto",
+        "removed_company_contact_tooltip": "Eliminado de la empresa"
       }
     },
     "errors": {
