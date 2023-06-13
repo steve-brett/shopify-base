@@ -457,5 +457,143 @@
         "resend_gift_cards_by_text": "Reenviar mensaje de texto"
       }
     }
+  },
+  "customer_accounts": {
+    "orders": {
+      "order_status": {
+        "gift_card_resend_text": {
+          "one": "reenviar texto",
+          "other": "Reenviar mensajes de texto"
+        },
+        "gift_card_resend_description": {
+          "one": "Si no se recibió, reenvíe el correo electrónico o",
+          "other": "Si no se recibieron, reenvíe los correos electrónicos o"
+        },
+        "gift_card_resend_description_text": {
+          "one": "Si no se recibió, vuelva a enviar el texto o",
+          "other": "Si no se recibieron, vuelva a enviar los textos o"
+        },
+        "confirmed_gift_card_additional_description": {
+          "one": "La tarjeta de regalo se enviará en un correo electrónico separado.",
+          "other": "Cada tarjeta de regalo se enviará en un correo electrónico separado."
+        },
+        "confirmed_gift_card_additional_description_text": {
+          "one": "La tarjeta de regalo se enviará en un mensaje de texto aparte.",
+          "other": "Cada tarjeta regalo se enviará en un texto aparte."
+        },
+        "estimated_delivery": "Entrega estimada {{date}}",
+        "in_review_description": "Le avisaremos si necesitamos más información o cuando se confirme su pedido.",
+        "in_review_label": "En revisión",
+        "in_review_title": "Su pedido está siendo revisado",
+        "last_updated": "Última actualización {{date}}",
+        "multiple_shipments_label": "Envíos múltiples",
+        "no_tracking_number": "No hay número de seguimiento para este envío.",
+        "on_its_way_label": "En su camino",
+        "on_its_way_title": "Su envío está en camino",
+        "out_for_delivery_label": "Fuera para entrega",
+        "out_for_delivery_title": "Su envío está fuera para la entrega",
+        "resume_tracking": "reanudar el seguimiento",
+        "submitted_label": "Enviado",
+        "submitted_description": "Revisa los detalles del pedido y del pago.",
+        "track_shipment": "Rastrear envio",
+        "request_return": "Solicitar devolución",
+        "view_order_for_details": "Ver orden para más detalles"
+      },
+      "status_mark_as_delivered": "marcar como entregado",
+      "status_title": "Estado del pedido",
+      "buy_again": "Compra otra vez",
+      "buy_again_accessibility_label": "Comprar de nuevo para el pedido {{orderId}}",
+      "manage": "Administrar",
+      "manage_accessiblity_label": "Administrar pedido {{orderId}}",
+      "group_title_label": "Parte de: {{groupTitle}}",
+      "havent_received_your_delivery": "¿No has recibido tu envío?",
+      "didnt_pick_up_order": "¿No recogiste tu pedido?",
+      "if_you_didnt_receive_this": "Si no recibiste esto,",
+      "let_us_know": "Haznos saber",
+      "contact_us": "Contáctenos."
+    },
+    "order_details": {
+      "shipment_timeline": {
+        "expand_events_label": "Mostrar detalles",
+        "expand_events_accessibility_label": "Mostrar detalles de envío del pedido",
+        "hide_events_label": "Ocultar detalles",
+        "hide_events_accessibility_label": "Ocultar detalles de envío del pedido"
+      },
+      "addresses_section_title": "facturación y envío",
+      "order_details": "Detalles del pedido",
+      "order_details_skeleton_accessibility_label": "Inicie sesión para ver todos los detalles del pedido.",
+      "billing_address": "Dirección de Envio",
+      "card_ending_with": "terminando en {{lastDigits}}",
+      "contact": "Contacto",
+      "contact_information": "Información del contacto",
+      "company": "Compañía",
+      "fully_refunded_label": "REINTEGRADO",
+      "discount": "Descuento",
+      "hide_items": "Ocultar elementos",
+      "loading": "Cargando detalles del pedido",
+      "loading_finished_accessibility_message": "Se han cargado los detalles del pedido.",
+      "location": "Ubicación",
+      "image_gallery": {
+        "next": "Mostrar los elementos siguientes",
+        "previous": "Mostrar elementos anteriores"
+      },
+      "mobile_summary_toggle_button": {
+        "open": "Mostrar resumen del pedido",
+        "closed": "Ocultar resumen del pedido"
+      },
+      "no_data": "Ninguno",
+      "no_data_provided_accessibility_label": "{{fieldName}} está vacío",
+      "not_applicable": "N \/ A",
+      "paid_amount": "Pagado",
+      "partially_refunded_label": "REINTEGRADO PARCIALMENTE",
+      "payment": {
+        "status_in_review": "Pago adeudado después de la revisión",
+        "status_unpaid": "Pago vencido el {{date}}",
+        "title": "Pago",
+        "card_payment_details": "terminando en {{lastDigits}} - {{formattedTransactionAmount}}",
+        "gift_card_payment_details": "terminando en {{lastDigits}} - {{formattedTransactionAmount}}",
+        "shop_pay_installments": {
+          "paid_in_installments": "Pago a plazos con Shop Pay.",
+          "view_schedule": "Ver horario"
+        },
+        "manual_payment_methods": {
+          "money_order": "Giro postal - {{formattedTransactionAmount}}",
+          "cash_on_delivery": "Contra reembolso (COD) - {{formattedTransactionAmount}}",
+          "bank_deposit": "Depósito bancario - {{formattedTransactionAmount}}"
+        }
+      },
+      "paid_with_shop_pay_installments_card": {
+        "paid_with_shop_pay_installments": "Pagado con Shop Pay Cuotas",
+        "description": "Manténgase al tanto de su calendario de pagos con recordatorios en la aplicación Shop.",
+        "payment_reminders_button": "Recibe recordatorios de pago",
+        "desktop_qr_code_content": {
+          "title": "Escanea en busca de recordatorios",
+          "description": "Recibe recordatorios de tus cuotas con Shop."
+        }
+      },
+      "refunded_amount": "Reintegrado",
+      "request_return_failed": "Hubo un problema procesando tu petición. Inténtalo de nuevo.",
+      "remaining_amount": "Restante",
+      "marketing_section_title": "Noticias y ofertas",
+      "marketing_description": "Recibirá correos electrónicos de marketing. Puedes darte de baja en cualquier momento.",
+      "marketing_checkbox_label": "Envíame un correo electrónico con noticias y ofertas",
+      "marketing_checkmark_label": "Estás suscrito para recibir noticias y ofertas por correo electrónico",
+      "returns": {
+        "expand_events_label": "Mostrar detalles",
+        "hide_events_label": "Ocultar detalles",
+        "ineligible_return_with_policy_message": "Ningún artículo en este pedido es elegible para devolución. Revise nuestra {{returnAndRefundPolicyLinkText}} para obtener más información.",
+        "ineligible_return_without_policy_message": "Ningún artículo en este pedido es elegible para devolución.",
+        "print_shipping_label": "Imprimir etiqueta de envío",
+        "return_and_refund_link_text": "politica de reembolso",
+        "return_and_refund_modal_header": "Politica de reembolso",
+        "tracking_number": "El número de rastreo:"
+      },
+      "shipping": {
+        "address": "Dirección de envío",
+        "address_map_marker": "Dirección de envío",
+        "method": "Método de envío",
+        "summary": "Envío"
+      }
+    }
   }
 }
