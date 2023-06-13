@@ -48,4 +48,23 @@ input, select, textarea {
   margin-bottom: 10px;
 }
 
+/* MESSAGE */
 
+.cp-message {
+  background: light-grey;
+  padding: 20px;
+}
+
+.cp-message--error {
+  background: light-pink;
+}
+
+.cp-message--success {
+  background: light-green;
+}
+
+.cp-message ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

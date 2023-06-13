@@ -1,38 +1,46 @@
 {% form 'contact' %}
+
+  {% if form.posted_successfully? %}
+
+    <p><strong>Thanks, your message was sent successfully. We will be in touch.</strong></p>
   
-  {% comment %}{{ form.errors | default_errors }}{% endcomment %}  
-  {% render 'cp-message-errors', errors: form.errors %}
+  {% else %}
+    
+    {% comment %}{{ form.errors | default_errors }}{% endcomment %}
+    {% render 'cp-message-errors', errors: form.errors %}
 
-  <div class="field">
-    <label for="first-name">First name</label>
-    <input type="text" name="contact[first_name]" id="first-name" />
-  </div>
+    <div class="field">
+      <label for="first-name">First name</label>
+      <input type="text" name="contact[first_name]" id="first-name" />
+    </div>
 
-  <div class="field">
-    <label for="last-name">Last name</label>
-    <input type="text" name="contact[last_name]" id="last-name" />
-  </div>
+    <div class="field">
+      <label for="last-name">Last name</label>
+      <input type="text" name="contact[last_name]" id="last-name" />
+    </div>
 
-  <div class="field">
-    <label for="phone">Phone</label>
-    <input type="tel" name="contact[phone]" id="phone" />
-  </div>
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input type="tel" name="contact[phone]" id="phone" />
+    </div>
 
-  <div class="field">
-    <label for="email">Email</label>
-    <input type="email" name="contact[email]" id="email" />
-  </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" name="contact[email]" id="email" />
+    </div>
 
-  <div class="field">
-    <label for="order-number">Order number</label>
-    <input type="text" name="contact[order_number]" id="order-number" />
-  </div>
+    <div class="field">
+      <label for="order-number">Order number</label>
+      <input type="text" name="contact[order_number]" id="order-number" />
+    </div>
 
-  <div class="field">
-    <label for="message">Message</label>
-    <textarea name="contact[body]" id="message"></textarea>
-  </div>
+    <div class="field">
+      <label for="message">Message</label>
+      <textarea name="contact[body]" id="message"></textarea>
+    </div>
+    
+    <button>Send message</button>
   
-  <button>Send message</button>
+  {% endif %}
   
 {% endform %}
