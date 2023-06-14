@@ -14,6 +14,19 @@
   "footer": {
     "copyright": "Copyright {{ shop_name }}"
   },
+  "blog": {
+    "back": "Back to {{ blog_title }}"
+  },
+  "article": {
+    "meta": "By {{ author }} on {{ date }}"
+  },
+  "comments": {
+    "none": "No comments yet",
+    "label_author": "Name",
+    "label_email": "Email",
+    "label_body": "Comment",
+    "submit": "Post comment"
+  },
   "newsletter": {
     "label": "Email",
     "subscribe": "Subscribe"

@@ -225,6 +225,19 @@ input, select, textarea {
   padding: 10px;
 }
 
+/* FEATURES */
+
+.cp-blog {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.cp-blog__item {
+  background: #ccc;
+  padding: 10px;
+}
+
 /* CARD */
 
 .cp-card__title {
@@ -236,12 +249,52 @@ input, select, textarea {
   text-decoration: none;
 }
 
+.cp-card__meta {
+  margin: 5px 0 0;
+  font-size: 14px;
+  font-style: italic;
+}
+
 .cp-card__image {
+  width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
   margin-block: 5px;
 }
 
+.cp-card__summary {
+  margin-bottom: 10px;
+}
+
 .cp-card__action {
   margin: 0;
+}
+
+/* PAGINATION */
+
+.cp-pagination {
+  margin: 30px 0;
+}
+
+.cp-pagination ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.cp-pagination a {
+  text-decoration: none;
+}
+
+.cp-pagination a:hover,
+.cp-pagination a:focus-visible {
+  text-decoration: underline;
+}
+
+.cp-pagination a:not([href]) {
+  opacity: 0.4;
 }

@@ -1,12 +1,43 @@
-<section id="s-{{ section.id }}" class="section section--main-blog">
-  @TODO
-</section>
+<div class="layout">
+
+  {% if blog.title != blank %}
+    <h2>{{ blog.title }}</h2>
+  {% endif %}
+
+  {% paginate blog.articles by section.settings.paginate_by %}
+
+    <div class="cp-blog">
+  
+      {% for article in blog.articles %}
+        
+        <div class="cp-blog__item">
+          {% capture meta %}{% render 'cp-article-meta', article: article %}{% endcapture %}
+          {% assign summary = article.excerpt | strip_html | truncate: 50 %}
+          {% render 'cp-card', title: article.title, meta: meta, image: article.image, summary: summary, url: article.url %}
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+    {% render 'cp-pagination', paginate: paginate %}
+
+  {% endpaginate %}
+
+</div>
 
 {% schema %}
 {
   "name": "Blog",
   "settings": [
-
+    {
+      "id": "paginate_by",
+      "type": "range",
+      "label": "Articles per page",
+      "default": 2,
+      "min": 2,
+      "max": 50
+    }
   ]
 }
 {% endschema %}

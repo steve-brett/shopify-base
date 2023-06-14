@@ -1,12 +1,55 @@
-<article id="s-{{ section.id }}" class="section section--main-article">
-  @TODO
+<article class="layout">
+  
+  <h1>{{ article.title }}</h1>
+
+  <p>{% render 'cp-article-meta', article: article %}</p>
+
+  <div class="rte">{{ article.content }}</div>
+
+  <p><a href="{{ blog.url }}">{{ 'blog.back' | t: blog_title: blog.title }}</a></p>
+
+  <hr>
+
+  {% if blog.comments_enabled? %}
+
+    {% if article.comments_count > 0 %}
+
+      {% paginate article.comments by section.settings.paginate_by %}
+
+        {% for comment in article.comments %}
+          <div>
+            {{ comment.author }}
+          </div>
+        {% endfor %}
+
+        {% render 'cp-pagination', paginate: paginate %}
+      
+      {% endpaginate %}
+    
+    {% else %}
+
+      <p><em>{{ 'comments.none' | t }}</em></p>
+
+    {% endif %}
+
+    {% render 'form-comment', article: article %}
+
+  {% endif %}
+
 </article>
 
 {% schema %}
 {
   "name": "Article",
   "settings": [
-
+    {
+      "id": "paginate_by",
+      "type": "range",
+      "label": "Comments per page",
+      "default": 2,
+      "min": 2,
+      "max": 50
+    }
   ]
 }
 {% endschema %}

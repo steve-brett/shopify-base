@@ -1,0 +1,4 @@
+<span class="cp-article-meta">
+  {{ 'article.meta' | t: author: article.author, date: article.created_at | date: '%B %d, %Y' }}
+  {% for tag in article.tags %}{{ tag | link_to_tag: tag }}{% unless forloop.last %}, {% endunless %}{% endfor %}
+</span>

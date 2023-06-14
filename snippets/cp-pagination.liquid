@@ -1,0 +1,23 @@
+{% if paginate.pages > 1 %}
+  <nav class="cp-pagination">
+    <ul>
+    
+      <li class="cp-pagination__prev">
+        <a {% if paginate.previous %}href="{{ paginate.previous.url }}"{% endif %}>←</a>
+      </li>
+    
+      {% for part in paginate.parts %}
+        <li class="cp-pagination__page">
+          <a {% if part.is_link %}href="{{ part.url }}"{% endif %} class="{% if paginate.current_page == part.title %}is-active{% endif %}">
+            {{ part.title }}
+          </a>
+        </li>
+      {% endfor %}
+    
+      <li class="sc-pagination__next">
+        <a {% if paginate.next %}href="{{ paginate.next.url }}"{% endif %}>→</a>
+      </li>
+    </ul>
+  </nav>
+{% endif %}
+  
