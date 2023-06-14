@@ -9,6 +9,10 @@
     </h3>
   {% endif %}
 
+  {% if meta != blank %}
+    <p class="cp-card__meta">{{ meta }}</p>
+  {% endif %}
+
   {% if image != blank %}
     <img 
       class="cp-card__image"
@@ -18,6 +22,10 @@
       alt="{{ image.alt }}"
       loading="lazy"
     >
+  {% endif %}
+
+  {% if summary != blank %}
+    <div class="cp-card__summary rte">{{ summary }}</div>
   {% endif %}
 
   {% if url != blank %}
