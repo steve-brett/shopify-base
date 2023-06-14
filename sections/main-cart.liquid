@@ -73,7 +73,7 @@
         <tfoot style="text-align:right;">
           <tr>
             <th colspan="3">Subtotal</th>
-            <td colspan="2">{{ cart.total_price | money }}</td>
+            <td colspan="2">{{ cart.items_subtotal_price | money }}</td>
           </tr>
           {% if cart.cart_level_discount_applications.size > 0 %}
             <tr>
@@ -89,16 +89,8 @@
             </tr>
           {% endif %}
           <tr>
-            <th colspan="3">Shipping</th>
-            <td colspan="2">@TODO</td>
-          </tr>
-          <tr>
-            <th colspan="3">Tax</th>
-            <td colspan="2">@TODO</td>
-          </tr>
-          <tr>
             <th colspan="3">Total</th>
-            <td colspan="2">@TODO</td>
+            <td colspan="2">{{ cart.total_price | money }}</td>
           </tr>
         </tfoot>
       </table>
