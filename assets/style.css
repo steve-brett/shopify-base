@@ -61,6 +61,18 @@ svg {
 :is(h1, h2, h3, h4, h5, h6):first-child { margin-top: 0; }
 :is(h1, h2, h3, h4, h5, h6):last-child { margin-bottom: 0; }
 
+/* TABLE */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 10px;
+}
+
 /* LINKS/BUTTONS */
 
 a {
@@ -83,6 +95,7 @@ a:hover, a:focus-within {
   text-align: center;
 }
 
+.btn--2 { background: lightgrey; color: black; }
 .btn--full { width: 100%; }
 
 .btn[disabled] {
@@ -346,6 +359,7 @@ input:not([type=checkbox],[type=radio]), select, textarea {
 }
 
 .cp-tag--label-new { background: orange; }
+.cp-tag--discount { background: red; color: white; }
 
 .cp-tag a {
   color: inherit;
