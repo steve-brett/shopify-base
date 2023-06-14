@@ -11,10 +11,7 @@
       {% for article in blog.articles %}
         
         <div class="cp-blog__item">
-          {% capture meta %}
-            {{ 'article.meta' | t: author: article.author, date: article.created_at | date: '%B %d, %Y' }}
-            {% for tag in article.tags %}{{ tag | link_to_tag: tag }}{% unless forloop.last %}, {% endunless %}{% endfor %}
-          {% endcapture %}
+          {% capture meta %}{% render 'cp-article-meta', article: article %}{% endcapture %}
           {% assign summary = article.excerpt | strip_html | truncate: 50 %}
           {% render 'cp-card', title: article.title, meta: meta, image: article.image, summary: summary, url: article.url %}
         </div>

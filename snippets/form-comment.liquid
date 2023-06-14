@@ -1,0 +1,32 @@
+{% form 'new_comment', article %}
+
+  {% if form.posted_successfully? %}
+    
+    <!-- SUCCESS -->
+    {% assign success_title = 'comments.success_title' | t %}
+    {% render 'cp-message', title: success_title, type: 'success' %}
+  
+  {% else %}
+
+    {% render 'cp-message-errors', errors: form.errors %}
+      
+    <div class="field">
+      <label for="author">{{ 'comments.label_author' | t }}</label>
+      <input type="text" name="comment[author]" id="author" required />
+    </div>
+
+    <div class="field">
+      <label for="email">{{ 'comments.label_email' | t }}</label>
+      <input type="email" name="comment[email]" id="email" required />
+    </div>
+
+    <div class="field">
+      <label for="comment">{{ 'comments.label_body' | t }}</label>
+      <textarea name="comment[body]" id="comment" rows="5" required></textarea>
+    </div>
+
+    <button class="btn">{{ 'comments.submit' | t }}</button>
+  
+  {% endif %}
+
+{% endform %}
