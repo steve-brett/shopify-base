@@ -1,0 +1,17 @@
+{% liquid 
+  if variant
+    assign price = variant.price
+    assign compare_price = variant.compare_at_price
+  else
+    assign price = product.price_min
+    assign compare_price = product.compare_at_price_min
+  endif
+%}
+
+<span class="cp-price">
+  {% unless variant %}{% if product and product.price_varies %}{{ 'product.price_from' | t }}{% endif %}{% endunless %}
+  <s {% if dynamic %}data-price-compare-id="{{ product.id }}"{% endif %}>
+    {% if compare_price > price %}{{ compare_price | money }}{% endif %}
+  </s>
+  <span {% if dynamic %}data-price-id="{{ product.id }}"{% endif %}>{{ price | money }}</span>
+</span>

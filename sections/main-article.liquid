@@ -16,10 +16,14 @@
 
       {% paginate article.comments by section.settings.paginate_by %}
 
+        <br>
         {% for comment in article.comments %}
-          <div>
-            {{ comment.author }}
-          </div>
+          {% assign date = comment.created_at | date: '%B %d, %Y' %}
+          <blockquote>
+            <p>{{ comment.content }}</p>
+            <cite>- {{ 'comments.meta' | t: author: comment.author, date: date }}</cite>
+          </blockquote>
+          <br>
         {% endfor %}
 
         {% render 'cp-pagination', paginate: paginate %}
@@ -31,6 +35,8 @@
       <p><em>{{ 'comments.none' | t }}</em></p>
 
     {% endif %}
+
+    <hr>
 
     {% render 'form-comment', article: article %}
 

@@ -1,0 +1,4 @@
+{% assign tag_text = tag_text | default: tag %}
+<div class="cp-tag cp-tag--{{ type | default: 'default' }}">
+  {{ tag_text | link_to_add_tag: tag }}
+</div>

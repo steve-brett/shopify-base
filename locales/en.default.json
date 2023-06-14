@@ -14,14 +14,57 @@
   "footer": {
     "copyright": "Copyright {{ shop_name }}"
   },
+  "collections_list": {
+    "none": "There are no collections.",
+    "title": "Collections"
+  },
+  "collection": {
+    "none": "There are no products.",
+    "sub_nav": "Categories:",
+    "sort_title": "Sort by",
+    "filter_title": "Filter by"
+  },
+  "search": {
+    "title": "Search {{ terms }}",
+    "none": "No results.",
+    "submit": "Search"
+  },
+  "product": {
+    "price_from": "From",
+    "sold_out": "Sold out",
+    "label_quantity": "Quantity",
+    "label_variant": "Option",
+    "label_custom": "Custom property",
+    "add": "Add to basket",
+    "button_sold_out": "Sold out",
+    "faq_title": "FAQs",
+    "recommended_title": "Recommended"
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "No items in basket.",
+    "remove": "Remove",
+    "line_product_title": "Product",
+    "line_price_title": "Price",
+    "line_quantity_title": "Quantity",
+    "line_total_title": "Total",
+    "label_note": "Delivery notes",
+    "label_customer_type": "Customer type",
+    "option_customer_consumer": "Consumer",
+    "option_customer_business": "Business",
+    "checkout": "Checkout",
+    "update": "Update"
+  },
   "blog": {
-    "back": "Back to {{ blog_title }}"
+    "back": "Back to {{ blog_title }}",
+    "none": "There are no articles yet."
   },
   "article": {
     "meta": "By {{ author }} on {{ date }}"
   },
   "comments": {
     "none": "No comments yet",
+    "meta": "By {{ author }} on {{ date }}",
     "label_author": "Name",
     "label_email": "Email",
     "label_body": "Comment",

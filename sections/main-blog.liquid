@@ -1,28 +1,36 @@
 <div class="layout">
 
   {% if blog.title != blank %}
-    <h2>{{ blog.title }}</h2>
+    <h1>{{ blog.title }}</h1>
   {% endif %}
 
-  {% paginate blog.articles by section.settings.paginate_by %}
+  {% if blog.articles.size > 0 %}
+    
+    {% paginate blog.articles by section.settings.paginate_by %}
 
-    <div class="cp-blog">
-  
-      {% for article in blog.articles %}
-        
-        <div class="cp-blog__item">
-          {% capture meta %}{% render 'cp-article-meta', article: article %}{% endcapture %}
-          {% assign summary = article.excerpt | strip_html | truncate: 50 %}
-          {% render 'cp-card', title: article.title, meta: meta, image: article.image, summary: summary, url: article.url %}
-        </div>
+      <div class="cp-card-list cp-card-list--blog">
+    
+        {% for article in blog.articles %}
+          
+          <div class="cp-card-list__item">
+            {% capture meta %}{% render 'cp-article-meta', article: article %}{% endcapture %}
+            {% assign summary = article.excerpt | strip_html | truncate: 50 %}
+            {% render 'cp-card', title: article.title, meta: meta, image: article.image, summary: summary, url: article.url %}
+          </div>
 
-      {% endfor %}
+        {% endfor %}
 
-    </div>
+      </div>
 
-    {% render 'cp-pagination', paginate: paginate %}
+      {% render 'cp-pagination', paginate: paginate %}
 
-  {% endpaginate %}
+    {% endpaginate %}
+
+  {% else %}
+
+    <p><em>{{ 'blog.none' | t }}</em></p>
+
+  {% endif %}
 
 </div>
 

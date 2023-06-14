@@ -1,12 +1,167 @@
-<section id="s-{{ section.id }}" class="section section--main-cart">
-  @TODO
-</section>
+{% form 'cart', cart %}
+  
+  <div class="layout">
+
+    <h2>{{ 'cart.title' | t }}</h2>
+
+    {% if cart.items.size > 0 %}
+
+      <table>
+        <tr>
+          <th></th>
+          <th>{{ 'cart.line_product_title' | t }}</th>
+          <th>{{ 'cart.line_price_title' | t }}</th>
+          <th>{{ 'cart.line_quantity_title' | t }}</th>
+          <th>{{ 'cart.line_total_title' | t }}</th>
+        </tr>
+        {% for item in cart.items %}
+          <tr>
+            <td style="width:120px;">
+              {{ item.image | image_url: width: 100, height: 100, crop: 'center' | image_tag }}
+            </td>
+            <td>
+              <a href="{{ item.product.url }}?variant={{ item.variant.id }}">
+                <strong>{{ item.product.title }}</strong>
+              </a><br>
+              <em>{{ item.variant.title }}</em><br>
+
+              {% if item.properties != blank %}
+                <ul>
+                  {% for property in item.properties %}
+                    {% assign property_first_char = property.first | slice: 0 %}
+                    {% if property.last != blank and property_first_char != '_' %}                      
+                      <li>
+                        <strong>{{ property.first }}:</strong>                        
+                        {% if property.last contains '/uploads/' %}
+                          <a href="{{ property.last }}" target="_blank">
+                            {{ property.last | split: '/' | last }}
+                          </a>
+                        {% else %}
+                          {{ property.last }}
+                        {% endif %}
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              {% endif %}
+
+              {% if item.selling_plan_allocation %}{{ item.selling_plan_allocation.selling_plan.name }}<br>{% endif %}
+
+              {% for discount in item.discounts %}
+                {{ discount.title }}<br>
+              {% endfor %}
+
+            </td>            
+            <td style="width:100px;text-align:right;">
+              {% if item.original_price > item.final_price %}
+                <s>{{ item.original_price | money }}</s>
+              {% endif %}
+              {{ item.final_price | money }}
+            </td>
+            <td style="width:100px;text-align:center;">
+              <input type="number" name="updates[]" value="{{ item.quantity }}" onchange="this.form.submit()">
+              <a href="{{ item.url_to_remove }}">{{ 'cart.remove' | t }}</a>
+            </td>
+            <td style="width:100px;text-align:right;">
+              {% if item.original_line_price > item.final_line_price %}
+                <s>{{ item.original_line_price | money }}</s>
+              {% endif %}
+              {{ item.final_line_price | money }}
+            </td>
+          </tr>
+        {% endfor %}
+        <tfoot style="text-align:right;">
+          <tr>
+            <th colspan="3">Subtotal</th>
+            <td colspan="2">{{ cart.total_price | money }}</td>
+          </tr>
+          {% if cart.cart_level_discount_applications.size > 0 %}
+            <tr>
+              <th colspan="3">Discounts</th>
+              <td colspan="2">                                
+                {% for discount in cart.cart_level_discount_applications %}
+                  <div>
+                    {{ discount.title }}
+                    (-{{ discount.total_allocated_amount | money }})
+                  </div>>
+                {% endfor %}                
+              </td>
+            </tr>
+          {% endif %}
+          <tr>
+            <th colspan="3">Shipping</th>
+            <td colspan="2">@TODO</td>
+          </tr>
+          <tr>
+            <th colspan="3">Tax</th>
+            <td colspan="2">@TODO</td>
+          </tr>
+          <tr>
+            <th colspan="3">Total</th>
+            <td colspan="2">@TODO</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <br >
+
+      {% if section.settings.show_note %}
+        <div class="field">
+          <label for="cart-note">{{ 'cart.label_note' | t }}</label>
+          <textarea name="note" id="cart-note">{{ cart.note }}</textarea>
+        </div>
+      {% endif %}
+
+      {% if section.settings.show_customer_type %}
+        <div class="field">
+          <label for="cart-customer-type">{{ 'cart.label_customer_type' | t }}</label>
+          <select name="attributes[Customer type]" id="cart-customer-type">
+            {% assign consumer_value = 'cart.option_customer_consumer' | t | handle %}
+            {% assign business_value = 'cart.option_customer_business' | t | handle %}
+            <option value="{{ consumer_value }}" {% if cart.attributes['Customer type'] == consumer_value %}selected{% endif %}>
+              {{ 'cart.option_customer_consumer' | t }}
+            </option>
+            <option value="{{ business_value }}" {% if cart.attributes['Customer type'] == business_value %}selected{% endif %}>
+              {{ 'cart.option_customer_business' | t }}
+            </option>
+          </select>
+        </div>
+      {% endif %}
+
+      <br>
+      <hr>
+
+      <div style="text-align:center;margin-top:20px;">        
+        <button name="update" class="btn btn--2">{{ 'cart.update' | t }}</button>
+        <button name="checkout" class="btn">{{ 'cart.checkout' | t }}</button>
+      </div>
+    
+    {% else %}
+
+      <p><em>{{ 'cart.empty' | t }}</em></p>
+
+    {% endif %}
+    
+  </div>
+
+{% endform %}
 
 {% schema %}
 {
   "name": "Cart",
   "settings": [
-
+    {
+      "id": "show_note",
+      "type": "checkbox",
+      "label": "Show note",
+      "default": true
+    },
+    {
+      "id": "show_customer_type",
+      "type": "checkbox",
+      "label": "Show customer type",
+      "default": true
+    }
   ]
 }
 {% endschema %}

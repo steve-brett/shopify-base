@@ -1,12 +1,59 @@
-<section id="s-{{ section.id }}" class="section section--main-search">
-  @TODO
-</section>
+<div class="layout">
+
+  {% capture terms %}{% if search.terms != blank %}'{{ search.terms }}'{% endif %}{% endcapture %}
+  <h1>{{ 'search.title' | t: terms: terms }}</h1>
+
+  <form action="{{ routes.search_url }}" method="get">
+    <input type="search" name="q" value="{{ search.terms | escape }}">
+    <button class="btn">{{ 'search.submit' | t }}</button>
+  </form>
+
+  <br><hr>
+
+  {% if search.results.size > 0 %}
+
+    {% paginate search.results by section.settings.paginate_by %}
+    
+      <div class="cp-card-list cp-card-list--search">
+        
+        {% for item in search.results %}
+
+          <div class="cp-card-list__item">
+            {% assign image = item.image %}
+            {% if item.object_type == 'product' %}
+              {% assign image = item.featured_image %}
+            {% endif %}
+            {% render 'cp-card', title: item.title, image: image, url: item.url %}
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+      {% render 'cp-pagination', paginate: paginate %}
+
+    {% endpaginate %}
+
+  {% else %}    
+
+    <p><em>{{ 'search.none' | t }}</em></p>
+
+  {% endif %}
+  
+</div>
 
 {% schema %}
 {
   "name": "Search",
   "settings": [
-
+    {
+      "id": "paginate_by",
+      "type": "range",
+      "label": "Products per page",
+      "default": 2,
+      "min": 2,
+      "max": 50
+    }
   ]
 }
 {% endschema %}

@@ -23,6 +23,9 @@ html {
   scale: unset;
 }
 
+.hide {
+  display: none !important;
+}
 
 /* PAGE */
 
@@ -58,6 +61,18 @@ svg {
 :is(h1, h2, h3, h4, h5, h6):first-child { margin-top: 0; }
 :is(h1, h2, h3, h4, h5, h6):last-child { margin-bottom: 0; }
 
+/* TABLE */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 10px;
+}
+
 /* LINKS/BUTTONS */
 
 a {
@@ -80,7 +95,13 @@ a:hover, a:focus-within {
   text-align: center;
 }
 
+.btn--2 { background: lightgrey; color: black; }
 .btn--full { width: 100%; }
+
+.btn[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
 
 /* FORMS */
 
@@ -90,7 +111,7 @@ label {
   margin-bottom: 5px;
 }
 
-input, select, textarea {
+input:not([type=checkbox],[type=radio]), select, textarea {
   display: block;
   font-size: inherit;
   width: 100%;
@@ -100,7 +121,7 @@ input, select, textarea {
   font-family: inherit;
 }
 
-.field {
+.field, .selector-wrapper {
   margin-bottom: 10px;
 }
 
@@ -214,28 +235,20 @@ input, select, textarea {
 
 /* FEATURES */
 
-.cp-features {
+.cp-card-list {
+  --min-width: 200px;
+  --max-width: 470px;
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(var(--min-width), 1fr));
 }
 
-.cp-features__item {
+.cp-card-list--blog { --min-width: 350px; }  
+
+.cp-card-list__item {
   background: #ccc;
   padding: 10px;
-}
-
-/* FEATURES */
-
-.cp-blog {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-}
-
-.cp-blog__item {
-  background: #ccc;
-  padding: 10px;
+  max-width: var(--max-width, 'none');  
 }
 
 /* CARD */
@@ -297,4 +310,62 @@ input, select, textarea {
 
 .cp-pagination a:not([href]) {
   opacity: 0.4;
+}
+
+/* PAGE NAV */
+
+.cp-page-nav {
+  display: flex;
+  gap: 15px;
+}
+
+.cp-page-nav p {
+  margin: 0;
+}
+
+.cp-page-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+/* PRODUCT */
+
+.cp-product {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+/* TAGS */
+
+.cp-tag-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.cp-tag {
+  font-size: 12px;
+  display: inline-block;  
+  padding: 5px;
+  border-radius: 2px;
+  background: lightgrey;
+}
+
+.cp-tag--label-new { background: orange; }
+
+.cp-tag a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cp-tag a:hover,
+.cp-tag a:focus-visible {
+  text-decoration: underline;
 }

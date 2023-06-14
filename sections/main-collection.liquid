@@ -1,12 +1,125 @@
-<section id="s-{{ section.id }}" class="section section--main-collection">
-  @TODO
-</section>
+<div class="layout">
+
+  {% if collection.title != blank %}<h1>{{ collection.title }}</h1>{% endif %}
+
+  {% if collection.description != blank %}<div class="rte">{{ collection.description }}</div>{% endif %}
+
+  <br>
+
+  {% if linklists[collection.handle].links.size > 0 %}
+    <nav class="cp-page-nav">
+      <p>{{ 'collection.sub_nav' | t }}</p>
+      <ul>
+        {% for link in linklists[collection.handle].links %}
+          <li><a href="{{ link.url }}" class="{% if link.active or link.child_active %}is-active{% endif %}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}  
+
+  {% if collection.products.size > 0 %}
+    
+    <br>
+
+    <form>
+
+      <!-- SORT -->
+      <h3>{{ 'collection.sort_title' | t }}</h3>
+      <div class="field">
+        <select name="sort_by" id="SortBy" onchange="this.form.submit()">
+          {% for option in collection.sort_options %}
+            <option value="{{ option.value | escape }}" {% if option.value == collection.sort_by %}selected{% endif %}>
+              {{ option.name | escape }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <!-- FILTERS -->
+      {% if collection.filters.size > 0 %}<h3>{{ 'collection.filter_title' | t }}</h3>{% endif %}
+      {% for filter in collection.filters %}        
+        
+        {% if filter.type == 'price_range' %}
+          <!-- Ref: https://github.com/Shopify/dawn/blob/main/snippets/facets.liquid -->
+          {% continue %}
+        {% endif %}
+
+        <details>
+          <summary>
+            {{ filter.label }}
+            {% if filter.active_values.size > 0 %}({{ filter.active_values.size }}){% endif %}
+            {% if filter.active_values.size > 0 %}<a href="{{ filter.url_to_remove }}">Reset</a>{% endif %}
+          </summary>
+    
+          {% case filter.type %}
+
+            {% when 'boolean' or 'list' %}              
+              {% for filter_value in filter.values %}
+                <div>
+                  <label>
+                    <input type="{% if filter.type == 'boolean' %}radio{% else %}checkbox{% endif %}"
+                      name="{{ filter_value.param_name }}"
+                      value="{{ filter_value.value }}"
+                      {% if filter_value.active %}checked{% endif %}
+                      {% if filter_value.count == 0 and filter_value.active == false %}disabled{% endif %}
+                      onchange="this.form.submit()"
+                    >
+                    {{ filter_value.label }}
+                  </label>
+                </div>
+              {% endfor %}
+
+          {% endcase %}
+          
+        </details>
+      {% endfor %}
+
+    </form>
+
+    <br>
+    <hr>
+
+    {% paginate collection.products by section.settings.paginate_by %}
+    
+      <div class="cp-card-list cp-card-list--collection">
+        
+        {% for product in collection.products %}
+
+          <div class="cp-card-list__item">
+            {% capture summary %}{% render 'cp-price', product: product %}{% endcapture %}
+            {% render 'cp-card', title: product.title, image: product.featured_image, summary: summary, url: product.url %}
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+      {% render 'cp-pagination', paginate: paginate %}
+
+    {% endpaginate %}
+
+  {% else %}
+      
+    <hr>
+
+    <p><em>{{ 'collection.none' | t }}</em></p>
+
+  {% endif %}
+  
+</div>
 
 {% schema %}
 {
   "name": "Collection",
   "settings": [
-
+    {
+      "id": "paginate_by",
+      "type": "range",
+      "label": "Products per page",
+      "default": 2,
+      "min": 2,
+      "max": 50
+    }
   ]
 }
 {% endschema %}
