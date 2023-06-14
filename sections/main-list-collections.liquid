@@ -1,17 +1,17 @@
 <div class="layout">
 
-  <h2>{{ 'collections_list.title' | t }}</h2>
+  <h1>{{ 'collections_list.title' | t }}</h1>
 
   {% if collections.size > 0 %}
-
+        
     {% paginate collections by section.settings.paginate_by %}
 
-      <div class="cp-collections-list">
+      <div class="cp-card-list cp-card-list--collections-list">
 
         {% for collection in collections %}
           
-          <div class="cp-collections-list__item">
-            {% render 'cp-card', title: collection.title, image: collection.image, url: collection.url %}
+          <div class="cp-card-list__item">
+            {% render 'cp-card', title: collection.title, image: collection.image, url: collection.url %}            
           </div>
 
         {% endfor %}

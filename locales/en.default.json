@@ -20,7 +20,14 @@
   },
   "collection": {
     "none": "There are no products.",
-    "sub_nav": "Categories:"
+    "sub_nav": "Categories:",
+    "sort_title": "Sort by",
+    "filter_title": "Filter by"
+  },
+  "search": {
+    "title": "Search {{ terms }}",
+    "none": "No results.",
+    "submit": "Search"
   },
   "product": {
     "from": "From"

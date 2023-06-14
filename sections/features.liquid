@@ -5,10 +5,10 @@
       <h2>{{ section.settings.title }}</h2>
     {% endif %}
           
-    <div class="cp-features">
+    <div class="cp-card-list cp-card-list--features">
       {% for block in section.blocks %}
 
-        <div class="cp-features__item">
+        <div class="cp-card-list__item">
           {% render 'cp-card', title: block.settings.title, image: block.settings.image, url: block.settings.url %}
         </div>
 

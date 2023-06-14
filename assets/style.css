@@ -90,7 +90,7 @@ label {
   margin-bottom: 5px;
 }
 
-input, select, textarea {
+input:not([type=checkbox],[type=radio]), select, textarea {
   display: block;
   font-size: inherit;
   width: 100%;
@@ -214,52 +214,16 @@ input, select, textarea {
 
 /* FEATURES */
 
-.cp-features {
+.cp-card-list {
+  --min-width: 200px;
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(var(--min-width), 1fr));
 }
 
-.cp-features__item {
-  background: #ccc;
-  padding: 10px;
-}
+.cp-card-list--blog { --min-width: 350px; }  
 
-/* BLOG */
-
-.cp-blog {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-}
-
-.cp-blog__item {
-  background: #ccc;
-  padding: 10px;
-}
-
-/* COLLECTION */
-
-.cp-collection {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-.cp-collection__item {
-  background: #ccc;
-  padding: 10px;
-}
-
-/* COLLECTION */
-
-.cp-collections-list {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-.cp-collections-list__item {
+.cp-card-list__item {
   background: #ccc;
   padding: 10px;
 }
