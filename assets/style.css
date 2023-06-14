@@ -359,6 +359,7 @@ input:not([type=checkbox],[type=radio]), select, textarea {
 }
 
 .cp-tag--label-new { background: orange; }
+.cp-tag--discount { background: red; color: white; }
 
 .cp-tag a {
   color: inherit;

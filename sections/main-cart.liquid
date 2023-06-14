@@ -48,7 +48,7 @@
               {% if item.selling_plan_allocation %}{{ item.selling_plan_allocation.selling_plan.name }}<br>{% endif %}
 
               {% for discount in item.discounts %}
-                {{ discount.title }}<br>
+                <span class="cp-tag cp-tag--discount">{{ discount.title }}</span><br>
               {% endfor %}
 
             </td>            
@@ -81,8 +81,8 @@
               <td colspan="2">                                
                 {% for discount in cart.cart_level_discount_applications %}
                   <div>
-                    {{ discount.title }}
-                    (-{{ discount.total_allocated_amount | money }})
+                    <span class="cp-tag cp-tag--discount">{{ discount.title }}</span>
+                    -{{ discount.total_allocated_amount | money }}
                   </div>
                 {% endfor %}                
               </td>
