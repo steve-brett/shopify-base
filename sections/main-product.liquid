@@ -37,6 +37,12 @@
 
       <p>{% render 'cp-price', variant: current_variant, dynamic: true %}</p>
 
+      {% if product.metafields.custom.material.value != blank %}
+        <ul>
+          <li><strong>Material:</strong> {{ product.metafields.custom.material.value }}</li>
+        </ul>
+      {% endif %}
+
       <div class="rte">{{ product.description }}</div>
 
       <br>
@@ -45,7 +51,21 @@
 
     </div>
 
-  </div> 
+  </div>
+
+  <br>
+  <hr>
+  <br>
+  
+  {% if product.metafields.custom.faqs %}
+    <h3>{{ 'product.faq_title' | t }}</h3>
+    <dl>
+      {% for faq in product.metafields.custom.faqs.value %}
+        <dt>{{ faq.question.value }}</dt>
+        <dd class="rte">{{ faq.answer | metafield_tag }}</dd>
+      {% endfor %}
+    </dl>
+  {% endif %}
   
 </div>
 
