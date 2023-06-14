@@ -14,8 +14,20 @@
   "footer": {
     "copyright": "Copyright {{ shop_name }}"
   },
+  "collections_list": {
+    "none": "There are no collections.",
+    "title": "Collections"
+  },
+  "collection": {
+    "none": "There are no products.",
+    "sub_nav": "Categories:"
+  },
+  "product": {
+    "from": "From"
+  },
   "blog": {
-    "back": "Back to {{ blog_title }}"
+    "back": "Back to {{ blog_title }}",
+    "none": "There are no articles yet."
   },  
   "article": {
     "meta": "By {{ author }} on {{ date }}"

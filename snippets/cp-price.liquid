@@ -1,0 +1,15 @@
+{% liquid 
+  if variant
+    assign price = variant.price
+    assign compare_price = variant.compare_at_price
+  else
+    assign price = product.price_min
+    assign compare_price = product.compare_at_price_min
+  endif
+%}
+
+<span class="cp-price">
+  {% if product and product.price_varies %}{{ 'product.from' | t }}{% endif %}
+  {% if compare_price > price %}<s>{{ compare_price | money }}</s>{% endif %}
+  {{ price | money }}
+</span>

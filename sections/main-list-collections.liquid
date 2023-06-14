@@ -1,12 +1,47 @@
-<section id="s-{{ section.id }}" class="section section--main-list-collections">
-  @TODO
-</section>
+<div class="layout">
+
+  <h2>{{ 'collections_list.title' | t }}</h2>
+
+  {% if collections.size > 0 %}
+
+    {% paginate collections by section.settings.paginate_by %}
+
+      <div class="cp-collections-list">
+
+        {% for collection in collections %}
+          
+          <div class="cp-collections-list__item">
+            {% render 'cp-card', title: collection.title, image: collection.image, url: collection.url %}
+          </div>
+
+        {% endfor %}
+      
+      </div>
+
+      {% render 'cp-pagination', paginate: paginate %}
+    
+    {% endpaginate %}
+  
+  {% else %}
+
+    <p><em>{{ 'collections_list.none' | t }}</em></p>
+
+  {% endif %}
+
+</div>
 
 {% schema %}
 {
   "name": "List Collections",
   "settings": [
-
+    {
+      "id": "paginate_by",
+      "type": "range",
+      "label": "Collections per page",
+      "default": 2,
+      "min": 2,
+      "max": 50
+    }
   ]
 }
 {% endschema %}

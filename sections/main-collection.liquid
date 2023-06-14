@@ -1,12 +1,65 @@
-<section id="s-{{ section.id }}" class="section section--main-collection">
-  @TODO
-</section>
+<div class="layout">
+
+  {% if collection.title != blank %}<h2>{{ collection.title }}</h2>{% endif %}
+
+  {% if collection.description != blank %}<div class="rte">{{ collection.description }}</div>{% endif %}
+
+  <br>
+
+  {% if linklists[collection.handle].links.size > 0 %}
+    <nav class="cp-page-nav">
+      <p>{{ 'collection.sub_nav' | t }}</p>
+      <ul>
+        {% for link in linklists[collection.handle].links %}
+          <li><a href="{{ link.url }}" class="{% if link.active or link.child_active %}is-active{% endif %}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
+
+  <hr>
+
+  {% if collection.products.size > 0 %}
+
+    {% paginate collection.products by section.settings.paginate_by %}
+    
+      <div class="cp-collection">
+        
+        {% for product in collection.products %}
+
+          <div class="cp-collection__item">
+            {% capture summary %}{% render 'cp-price', product: product %}{% endcapture %}
+            {% render 'cp-card', title: product.title, image: product.featured_image, summary: summary, url: product.url %}
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+      {% render 'cp-pagination', paginate: paginate %}
+
+    {% endpaginate %}
+
+  {% else %}
+
+    <p><em>{{ 'collection.none' | t }}</em></p>
+
+  {% endif %}
+  
+</div>
 
 {% schema %}
 {
   "name": "Collection",
   "settings": [
-
+    {
+      "id": "paginate_by",
+      "type": "range",
+      "label": "Products per page",
+      "default": 2,
+      "min": 2,
+      "max": 50
+    }
   ]
 }
 {% endschema %}
