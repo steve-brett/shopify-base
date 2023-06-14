@@ -88,6 +88,19 @@
               </td>
             </tr>
           {% endif %}
+          {% if cart.discount_applications.size > 0 %}
+            <tr>
+              <th colspan="3">Discounts</th>
+              <td colspan="2">                                
+                {% for discount in cart.discount_applications %}
+                  <div>
+                    {{ discount.title }}
+                    (-{{ discount.total_allocated_amount | money }})
+                  </div>>
+                {% endfor %}                
+              </td>
+            </tr>
+          {% endif %}
           <tr>
             <th colspan="3">Shipping</th>
             <td colspan="2">@TODO</td>
