@@ -35,7 +35,8 @@
     "label_quantity": "Quantity",
     "label_variant": "Option",    
     "add": "Add to basket",
-    "button_sold_out": "Sold out"
+    "button_sold_out": "Sold out",
+    "recommended_title": "Recommended"
   },
   "blog": {
     "back": "Back to {{ blog_title }}",

@@ -223,17 +223,17 @@ input:not([type=checkbox],[type=radio]), select, textarea {
 /* FEATURES */
 
 .cp-card-list {
-  --min-width: 200px;
+  --min-width: 350px;
+  --max-width: 470px;
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(var(--min-width), 1fr));
 }
 
-.cp-card-list--blog { --min-width: 350px; }  
-
 .cp-card-list__item {
   background: #ccc;
   padding: 10px;
+  max-width: var(--max-width, 'none');  
 }
 
 /* CARD */

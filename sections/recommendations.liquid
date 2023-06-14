@@ -1,26 +1,82 @@
-{% if recommendations.performed? and recommendations.products_count > 0 %}
+<div data-recommend="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.limit }}&intent=related">
 
-  <section id="s-{{ section.id }}" class="section section--recommendations" data-recommend="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.limit }}&intent=related">
+  {% comment %} https://shopify.dev/docs/themes/product-merchandising/recommendations {% endcomment %}
 
-    <div class="product-list">
-      {% for product in recommendations.products %}
-        
-        <div class="product-list__item">
-          {% render 'cp-product-card', product: product %}
-        </div>
+  {% if recommendations.performed? and recommendations.products_count > 0 %}
+  
+    <div class="layout">
 
-      {% endfor %}
+      <h2>{{ 'product.recommended_title' | t }}</h2>
+      
+      <div class="cp-card-list">
+        {% for product in recommendations.products %}
+          
+          <div class="cp-card-list__item">
+            {% capture summary %}{% render 'cp-price', product: product %}{% endcapture %}
+              {% render 'cp-card', title: product.title, image: product.featured_image, summary: summary, url: product.url %}
+          </div>
+
+        {% endfor %}
+      </div>
+
     </div>
-    
-  </section>
 
-{%- endif -%}
+  {% endif %}
+  
+</div>
+
+<script>
+  const selector = '[data-recommend]';
+  const handleIntersection = (entries, observer) => {
+    if (!entries[0].isIntersecting) return;
+
+    observer.unobserve(productRecommendationsSection);
+
+    const url = productRecommendationsSection.dataset.recommend;
+
+    fetch(url)
+      .then(response => response.text())
+      .then(text => {
+        const html = document.createElement('div');
+        html.innerHTML = text;
+        const recommendations = html.querySelector(selector);
+
+        if (recommendations && recommendations.innerHTML.trim().length) {
+          productRecommendationsSection.innerHTML = recommendations.innerHTML;
+        }
+      })
+      .catch(e => {
+        console.error(e);
+      });
+  };
+
+  const productRecommendationsSection = document.querySelector(selector);
+  const observer = new IntersectionObserver(handleIntersection, {rootMargin: '0px 0px 200px 0px'});
+
+  observer.observe(productRecommendationsSection);
+
+</script>
 
 {% schema %}
 {
   "name": "Recommendations",
   "settings": [
+    {
+      "id": "limit",
+      "type": "range",
+      "label": "Limit",
+      "min": 1,
+      "max": 10,
+      "default": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recommendations",
+      "settings": {
 
+      }
+    }
   ]
 }
 {% endschema %}
