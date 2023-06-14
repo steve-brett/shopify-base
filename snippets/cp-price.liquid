@@ -9,7 +9,9 @@
 %}
 
 <span class="cp-price">
-  {% if product and product.price_varies %}{{ 'product.from' | t }}{% endif %}
-  {% if compare_price > price %}<s>{{ compare_price | money }}</s>{% endif %}
-  {{ price | money }}
+  {% unless variant %}{% if product and product.price_varies %}{{ 'product.price_from' | t }}{% endif %}{% endunless %}
+  <s {% if dynamic %}data-price-compare-id="{{ product.id }}"{% endif %}>
+    {% if compare_price > price %}{{ compare_price | money }}{% endif %}
+  </s>
+  <span {% if dynamic %}data-price-id="{{ product.id }}"{% endif %}>{{ price | money }}</span>
 </span>

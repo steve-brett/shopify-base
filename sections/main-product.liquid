@@ -1,6 +1,55 @@
-<section id="s-{{ section.id }}" class="section section--main-product">
-  @TODO
-</section>
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+<div class="layout">
+
+  <div class="cp-product">
+
+    <div class="cp-product__media" data-gallery="{{ product.id }}">
+      {% for media in product.media %}
+        <div data-media="{{ media.id }}" class="
+          {% if current_variant.featured_media %}          
+            {% if current_variant.featured_media.id != media.id %}hide{% endif %}
+          {% elsif forloop.index > 1 %}
+            hide
+          {% endif %}
+        ">
+          {% case media.media_type %}
+            {% when 'image' %}            
+              {{ media | image_url: width: 1000, height: 1000 | image_tag }}
+            {% when 'external_video' %}
+              {{ media | external_video_tag }}
+            {% when 'video' %}
+              {{ media | video_tag: controls: true }}
+            {% when 'model' %}
+              {{ media | model_viewer_tag }}
+            {% else %}
+              {{ media | media_tag }}
+          {% endcase %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="cp-product__info">
+      
+      <h1>{{ product.title }}</h1>
+
+      {% render 'cp-tag-list', tags: product.tags, filter: 'label' %}
+
+      <p>{% render 'cp-price', variant: current_variant, dynamic: true %}</p>
+
+      <div class="rte">{{ product.description }}</div>
+
+      <br>
+
+      {% render 'form-product', product, current_variant: current_variant %}
+
+    </div>
+
+  </div> 
+  
+</div>
+
+<br><br><br><hr>
 
 {% schema %}
 {

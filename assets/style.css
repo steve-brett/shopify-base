@@ -23,6 +23,9 @@ html {
   scale: unset;
 }
 
+.hide {
+  display: none !important;
+}
 
 /* PAGE */
 
@@ -82,6 +85,11 @@ a:hover, a:focus-within {
 
 .btn--full { width: 100%; }
 
+.btn[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 /* FORMS */
 
 label {
@@ -100,7 +108,7 @@ input:not([type=checkbox],[type=radio]), select, textarea {
   font-family: inherit;
 }
 
-.field {
+.field, .selector-wrapper {
   margin-bottom: 10px;
 }
 
@@ -306,4 +314,43 @@ input:not([type=checkbox],[type=radio]), select, textarea {
   list-style: none;
   display: flex;
   gap: 15px;
+}
+
+/* PRODUCT */
+
+.cp-product {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+/* TAGS */
+
+.cp-tag-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.cp-tag {
+  font-size: 12px;
+  display: inline-block;  
+  padding: 5px;
+  border-radius: 2px;
+  background: lightgrey;
+}
+
+.cp-tag--label-new { background: orange; }
+
+.cp-tag a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cp-tag a:hover,
+.cp-tag a:focus-visible {
+  text-decoration: underline;
 }

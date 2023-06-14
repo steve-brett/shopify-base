@@ -1,0 +1,18 @@
+{% assign filter = filter | default: '' %}
+
+{%- capture tags -%}
+  {%- for tag in product.tags -%}
+    {%- if tag contains filter -%}   
+      {%- assign tag_data = tag | split: ':' -%}
+      {%- assign tag_label = tag_data | first | handle -%}
+      {%- assign tag_text = tag_data | last -%}
+      <li>{%- render 'cp-tag', tag: tag, tag_text: tag_text, type: tag_label -%}</li>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{% if tags != blank %}
+  <ul class="cp-tag-list">
+    {{ tags }}
+  </ul>
+{% endif %}

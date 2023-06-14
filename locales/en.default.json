@@ -30,7 +30,12 @@
     "submit": "Search"
   },
   "product": {
-    "from": "From"
+    "price_from": "From",
+    "sold_out": "Sold out",
+    "label_quantity": "Quantity",
+    "label_variant": "Option",    
+    "add": "Add to basket",
+    "button_sold_out": "Sold out"
   },
   "blog": {
     "back": "Back to {{ blog_title }}",
