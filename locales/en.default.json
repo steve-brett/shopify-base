@@ -25,7 +25,8 @@
     "label_author": "Name",
     "label_email": "Email",
     "label_body": "Comment",
-    "submit": "Post comment"
+    "submit": "Post comment",
+    "success_title": "Thanks for posting a comment!"
   },
   "newsletter": {
     "label": "Email",
