@@ -1,1 +1,80 @@
-@TODO
+{% paginate customer.addresses by settings.addresses_per_page %}
+
+  <div class="layout">
+
+    <h1>{{ 'customer.addresses.title' | t }}</h1>
+
+    <p><a href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a></p>
+
+    {% render 'cp-address', address: customer.default_address %}
+
+    {% for address in customer.addresses %}
+      {% unless address.id == customer.default_address.id %}
+        {% render 'cp-address', address: address %}
+      {% endunless %}
+    {% endfor %}
+
+    <br><hr>
+
+    <p><a href="#NewAddress" data-trigger>{{ 'customer.addresses.add_new' | t }}</a></p>
+
+    <p><a href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a></p>
+
+    {% render 'cp-pagination', paginate: paginate %}
+
+    <p><a href="{{ routes.account_logout_url }}">{{ 'customer.account.log_out' | t }}</a></p>
+
+    {% capture add_address %}{% render 'cp-address-form' %}{% endcapture %}
+    {% render 'cp-dialog', id: 'NewAddress', content: add_address %}
+
+  </div>
+
+{% endpaginate %}
+
+<script>
+   // country/state selector
+  const countrySelectors = document.querySelectorAll('[data-country]');  
+
+  countrySelectors.forEach(countrySelect => {
+    autoSelectCountry(countrySelect);
+    updateProvinces(countrySelect);
+    countrySelect.addEventListener('change', e => updateProvinces(countrySelect));
+  });
+
+  function updateProvinces(countrySelect) {
+    let selectedCountry = countrySelect.getAttribute('data-country');
+    let form = countrySelect.closest('form');
+    let provinceWrapper = form.querySelector('[data-country-province-wrapper]');
+    let provinceSelect = form.querySelector('[data-country-province]');
+    let selectedProvince = provinceSelect.getAttribute('data-country-province');
+    let selectedCountryOption = countrySelect.options[countrySelect.selectedIndex] ?? false;
+    let provincesData = selectedCountryOption.getAttribute('data-provinces') ?? false;
+    let provinces = provincesData ? (JSON.parse(provincesData) ?? false) : false;    
+
+    if (provinces.length) {
+      let provincesHTML = '<option selected disabled value="">Select...</option>';
+
+      for (const province of provinces) {
+        provincesHTML += '<option value="'+province[0]+'">'+province[1]+'</option>';
+      }
+        
+      provinceSelect.disabled = false;
+      provinceSelect.innerHTML = provincesHTML;
+      provinceSelect.value = selectedProvince;        
+      provinceWrapper.classList.remove('hide');
+    } else {
+      provinceSelect.disabled = true;
+      provinceWrapper.classList.add('hide');
+      provinceSelect.innerHTML = '';
+    }
+  }
+
+  function autoSelectCountry(countrySelect) {        
+    // BUG: all_country_option_tags cannot handle translations https://shopify.dev/docs/api/liquid/objects/all_country_option_tags
+    // countrySelect.value = countrySelect.getAttribute('data-country');
+    // TEMPORARY FIX: Match against option.text (which is translated) instead of option.value
+    var selectedCountry = countrySelect.getAttribute('data-country');
+    var selectedCountryOption = [...countrySelect.options].find(option => option.text == countrySelect.getAttribute('data-country'));
+    if (selectedCountryOption) countrySelect.value = selectedCountryOption.value;
+  }
+</script>

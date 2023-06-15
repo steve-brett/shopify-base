@@ -1,1 +1,43 @@
-@TODO
+<div class="layout">
+
+  {% form 'create_customer', novalidate: '', return_to: '/account' %}
+
+    <h1>{{ 'customer.register.title' | t }}</h1>
+
+    {% if form.posted_successfully? %}
+      {% assign reset_success_title = 'customer.register.success' | t %}
+      {% render 'cp-message', title: reset_success_title, type: 'success' %}
+    {% endif %}
+
+    {% render 'cp-message-errors', errors: form.errors %}
+
+    <div class="field">
+      <label for="FirstName">{{ 'customer.register.first_name_label' | t }}</label>
+      <input type="text" name="customer[first_name]" id="FirstName" value="{{ form.first_name }}" autofocus>
+    </div>
+
+    <div class="field">
+      <label for="LastName">{{ 'customer.register.last_name_label' | t }}</label>
+      <input type="text" name="customer[last_name]" id="LastName" value="{{ form.last_name }}">
+    </div>
+
+    <div class="field">
+      <label for="Email">{{ 'customer.register.email_label' | t }}</label>
+      <input type="email" name="customer[email]" id="Email" value="{{ form.email }}" autocorrect="off" autocapitalize="off" required>
+    </div>
+
+    <div class="field">
+      <label for="CreatePassword">{{ 'customer.register.password_label' | t }}</label>
+      <input type="password" name="customer[password]" id="CreatePassword" minlength="5" required>
+    </div>
+
+    
+    <button class="btn btn--wide">{{ 'customer.register.submit' | t }}</button>
+    
+    <p>
+      <a href="{{ routes.account_login_url }}">{{ 'customer.register.cancel' | t }}</a>
+    </p>    
+
+  {% endform %}
+
+</div>
