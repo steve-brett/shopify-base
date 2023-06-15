@@ -1,1 +1,97 @@
-@TODO
+<div class="layout">
+
+  <div id="login">
+
+    <h1>{{ 'customer.login.title' | t }}</h1>
+
+    {% form 'recover_customer_password' %}
+      {% if form.posted_successfully? %}
+        {% assign recover_success_title = 'customer.recover.success' | t %}
+        {% render 'cp-message', title: recover_success_title, type: 'success' %}
+      {% endif %}
+    {% endform %}
+
+    {% form 'customer_login', novalidate: '' %}
+
+      {% render 'cp-message-errors', errors: form.errors %}
+
+      <div class="field">
+        <label for="CustomerEmail">{{ 'customer.login.email_label' | t }}</label>
+        <input type="email" id="CustomerEmail" name="customer[email]" value="{{ form.email }}" autocorrect="off" autocapitalize="off" autofocus required>
+      </div>
+
+      {% if form.password_needed %}
+        <div class="field">
+          <label for="CustomerPassword">{{ 'customer.login.password_label' | t }}</label>
+          <input type="password" id="CustomerPassword" name="customer[password]" required>          
+          <a href="#recover" data-toggle>{{ 'customer.login.forgot_password_link' | t }}</a>
+        </div>
+      {% endif %}
+
+      <button class="btn">{{ 'customer.login.submit' | t }}</button>
+      
+      <p>
+        <a href="{{ routes.account_register_url }}">{{ 'customer.login.register_link' | t }}</a>
+      </p>
+
+    {% endform %}
+
+  </div>
+
+  <div id="recover" class="hide">
+    <h2>{{ 'customer.recover.title' | t }}</h2>
+
+    {% form 'recover_customer_password' %}
+
+      {% render 'cp-message-errors', errors: form.errors %}
+
+      <div class="field">
+        <label for="RecoverEmail">{{ 'customer.recover.email_label' | t }}</label>
+        <input type="email" name="email" id="RecoverEmail" value="{{ form.email }}" autocorrect="off" autocapitalize="off" required />
+      </div>
+
+      
+      <button class="btn">{{ 'customer.recover.submit' | t }}</button>
+      
+      <p>
+        <a href="#login" data-toggle>{{ 'customer.recover.cancel' | t }}</a>
+      </p>
+
+    {% endform %}
+  </div>
+
+  {% if shop.checkout.guest_login %}
+    <hr>
+
+    {% form 'guest_login' %}
+      <p>
+        <button class="btn">{{ 'customer.login.guest_link' | t }}</button>
+      </p>
+    {% endform %}
+  {% endif %}
+
+</div>
+
+<script>
+  const loginForm = document.querySelector('#login');
+  const recoverForm = document.querySelector('#recover');
+
+  document.querySelectorAll('[data-toggle]').forEach(toggle => {
+    toggle.addEventListener('click', e => {
+      e.preventDefault();
+
+      if (e.target.getAttribute('href') == '#recover') {
+        loginForm.classList.add('hide');
+        recoverForm.classList.remove('hide');
+      } else {
+        loginForm.classList.remove('hide');
+        recoverForm.classList.add('hide');
+      }      
+    });
+  });
+
+  if (window.location.hash == '#recover') {
+    loginForm.classList.add('hide');
+    recoverForm.classList.remove('hide');
+  }
+</script>

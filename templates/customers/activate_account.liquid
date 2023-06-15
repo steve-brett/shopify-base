@@ -1,1 +1,27 @@
-@TODO
+<div class="layout">  
+
+  {% form 'activate_customer_password', novalidate: '' %}
+
+    <h1>{{ 'customer.activate.title' | t }}</h1>
+
+    {% render 'cp-message-errors', errors: form.errors %}
+
+    <div class="field">
+      <label for="CustomerPassword">{{ 'customer.activate.password_label' | t }}</label>
+      <input type="password" name="customer[password]" id="CustomerPassword" minlength="5" required>
+    </div>
+
+    <div class="field">
+      <label for="CustomerPasswordConfirmation">{{ 'customer.activate.password_confirm_label' | t }}</label>
+      <input type="password" name="customer[password_confirmation]" id="CustomerPasswordConfirmation" minlength="5" required>
+    </div>
+    
+    <button class="btn">{{ 'customer.activate.submit' | t }}</button>
+      
+    <p>
+      <a href="/">{{ 'customer.activate.cancel' | t }}</a>      
+    </p>
+
+  {% endform %}
+
+</div>

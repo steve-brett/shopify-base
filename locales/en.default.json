@@ -88,5 +88,46 @@
     "label_message": "Message",
     "success_title": "Thanks, your message was sent successfully.",
     "success_body_html": "<p>We will be in touch.</p>"
+  },
+  "customer": {
+    "login": {
+      "title": "Login",
+      "email_label": "Email",
+      "password_label": "Password",
+      "forgot_password_link": "Forgot your password?",
+      "submit": "Login",
+      "register_link": "Register",
+      "guest_link": "Continue"
+    },
+    "recover": {
+      "title": "Password reset",
+      "email_label": "Email",
+      "success": "Your password reset email has been sent.",
+      "submit": "Reset",
+      "cancel": "Cancel"
+    },
+    "activate": {
+      "title": "Account activation",
+      "password_label": "Password",
+      "password_confirm_label": "Password confirm",
+      "submit": "Account activation",
+      "cancel": "Reject invitation"
+    },
+    "reset": {
+      "title": "Password reset",
+      "password_label": "Password",
+      "password_confirm_label": "Password confirm",
+      "submit": "Reset password",
+      "cancel": "Cancel"
+    },
+    "register": {
+      "title": "Create account",
+      "first_name_label": "First name",
+      "last_name_label": "Last name",
+      "email_label": "Email",
+      "password_label": "Password",
+      "submit": "Register",
+      "cancel": "Return to login"
+    }
   }
 }
