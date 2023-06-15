@@ -3,8 +3,6 @@
     "contact_first_name_required": false,
     "contact_last_name_required": false,
     "contact_phone_required": false,
-    "checkout_header_image": "shopify:\/\/shop_images\/915V6d75aWL._AC_UL1500_1a8b6a9f-f1ec-44b4-87de-a069d73fafd6.jpg",
-    "checkout_logo_image": "shopify:\/\/shop_images\/woolmarkimagelogo-1024x576_035831b8-6d63-4abd-9e4b-6dac18e9f05b.png",
     "sections": {
       "header": {
         "type": "header",
