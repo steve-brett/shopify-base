@@ -3,6 +3,10 @@
     "contact_first_name_required": false,
     "contact_last_name_required": false,
     "contact_phone_required": false,
+    "checkout_logo_image": "shopify:\/\/shop_images\/woolmarkimagelogo-1024x576_9e468e56-e75d-47b7-9c26-9d265a697a44.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_color": "#ffffff",
     "sections": {
       "header": {
         "type": "header",
@@ -15,7 +19,9 @@
         "type": "footer",
         "settings": {
           "menu": "footer",
-          "show_social": true
+          "show_social": true,
+          "show_currency": true,
+          "show_language": true
         }
       },
       "features": {
@@ -53,6 +59,12 @@
         ],
         "settings": {
           "title": "Featured products"
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "title": "Newsletter"
         }
       }
     },
