@@ -1,0 +1,27 @@
+<div class="cp-address">
+  {% capture address_key %}EditAddress{{ address.id }}{% endcapture %}
+
+  {% if address == customer.default_address %}
+    <p><strong>{{ 'customer.addresses.default' | t }}</strong></p>
+  {% endif %}
+  {{ address | format_address }}
+  <p>{{ address.phone }}</p>
+  
+
+  <div style="display:flex;gap:10px;">
+    <a href="#{{ address_key }}" data-dialog-trigger class="btn">{{ 'customer.addresses.edit' | t }}</a>
+  
+    <form method="post" action="/account/addresses/{{ address.id }}">
+      <input type="hidden" name="_method" value="delete">
+      <button class="btn">{{ 'customer.addresses.delete' | t }}</button>
+    </form>
+  </div>
+
+  {% comment %}Edit address dialog{% endcomment %}
+  {% capture edit_address %}
+    {% assign title = 'customer.addresses.edit' | t %}
+    {% assign submit_text = 'customer.addresses.update' | t %}
+    {% render 'cp-address-form', address: address, title: title, submit_text: submit_text %}
+  {% endcapture %}
+  {% render 'cp-dialog', id: address_key, content: edit_address %}
+</div>

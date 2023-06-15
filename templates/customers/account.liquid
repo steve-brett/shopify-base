@@ -1,1 +1,75 @@
-@TODO
+<div class="layout">
+
+  <h1>{{ 'customer.account.title' | t }}</h1>
+
+  <h2>{{ 'customer.account.orders_title' | t }}</h2>
+
+  {% paginate customer.orders by 10 %}
+    {% if customer.orders.size > 0 %}
+      
+      <table>
+        <thead>
+          <tr>
+            <th>{{ 'customer.account.order_number' | t }}</th>
+            <th>{{ 'customer.account.date' | t }}</th>
+            <th>{{ 'customer.account.payment_status' | t }}</th>
+            <th>{{ 'customer.account.fulfillment_status' | t }}</th>
+            <th>{{ 'customer.account.total' | t }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in customer.orders %}
+            <tr>
+              <td data-label="{{ 'customer.order_number' | t }}">
+                <a href="{{ order.customer_url }}" class="link-2">{{ order.name }}</a>
+              </td>
+              <td data-label="{{ 'customer.account.date' | t }}">{{ order.created_at | date: '%d/%m/%y' }}</td>
+              <td data-label="{{ 'customer.account.payment_status' | t }}">{{ order.financial_status_label }}</td>
+              <td data-label="{{ 'customer.account.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+              <td data-label="{{ 'customer.account.total' | t }}">{{ order.total_price | money }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>          
+
+    {% else %}
+
+      <p>{{ 'customer.account.no_orders' | t }}</p>
+
+    {% endif %}
+
+    {% render 'cp-pagination', paginate: paginate %}
+
+  {% endpaginate %}
+
+  <h2>{{ 'customer.account.addresses_title' | t }}</h2>
+
+  {% if customer.default_address != blank %}
+    {{ customer.default_address | format_address }}
+  {% else %}
+    <p>{{ 'customer.account.no_default_address' | t }}</p>
+  {% endif %}
+
+  <p><a href="{{ routes.account_addresses_url }}">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
+
+  <p><a href="{{ routes.account_logout_url }}">{{ 'customer.account.log_out' | t }}</a></p>
+
+</div>
+
+<script>
+
+  // dialogs
+  document.querySelectorAll('[data-dialog]').forEach((dialog) => {
+    var triggers = document.querySelectorAll('[href="#'+dialog.id+'"],[data-dialog-trigger="'+dialog.id+'"]');
+  
+    // trigger open
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        dialog.scrollTo({ top: 0 });
+        dialog.showModal();
+      });
+    });
+  
+  });
+</script>

@@ -1,0 +1,77 @@
+{% assign address = address | default: customer.new_address %}
+{% unless title %}{% assign title = 'customer.addresses.add_new' | t %}{% endunless %}
+{% unless submit_text %}{% assign submit_text = 'customer.addresses.add' | t %}{% endunless %}
+
+{% if address == customer.default_address %}{% assign is_default = true %}{% endif %}
+
+{% if title != blank %}
+  <h2>{{ title }}</h2>
+{% endif %}
+
+{% form 'customer_address', address %}  
+
+  <div class="field">
+    <label for="AddressFirstName_{{ form.id }}">{{ 'customer.addresses.first_name' | t }}</label>
+    <input type="text" id="AddressFirstName_{{ form.id }}" name="address[first_name]" value="{{ form.first_name }}" required>
+  </div>
+
+  <div class="field">
+    <label for="AddressLastName_{{ form.id }}">{{ 'customer.addresses.last_name' | t }}</label>
+    <input type="text" id="AddressLastName_{{ form.id }}" name="address[last_name]" value="{{ form.last_name }}" required>
+  </div>
+
+  <div class="field">
+    <label for="AddressCompany_{{ form.id }}">{{ 'customer.addresses.company' | t }}</label>
+    <input type="text" id="AddressCompany_{{ form.id }}" name="address[company]" value="{{ form.company }}">
+  </div>
+
+  <div class="field">
+    <label for="AddressAddress1_{{ form.id }}">{{ 'customer.addresses.address1' | t }}</label>
+    <input type="text" id="AddressAddress1_{{ form.id }}" name="address[address1]" value="{{ form.address1 }}" required>
+  </div>
+
+  <div class="field">
+    <label for="AddressAddress2_{{ form.id }}">{{ 'customer.addresses.address2' | t }}</label>
+    <input type="text" id="AddressAddress2_{{ form.id }}" name="address[address2]" value="{{ form.address2 }}">
+  </div>
+
+  <div class="field">
+    <label for="AddressCity_{{ form.id }}">{{ 'customer.addresses.city' | t }}</label>
+    <input type="text" id="AddressCity_{{ form.id }}" name="address[city]" value="{{ form.city }}" required>
+  </div>
+
+  <div class="field">
+    <label for="AddressCountry_{{ form.id }}">{{ 'customer.addresses.country' | t }}</label>
+    <select id="AddressCountry_{{ form.id }}" name="address[country]" data-country="{{ form.country }}" required>
+      <option selected disabled value="">Select...</option>
+      {{ all_country_option_tags }}
+    </select>
+  </div>
+
+  <div class="field hide" data-country-province-wrapper>
+    <!-- Reset/override to nothing if province blank/disabled -->
+    <input type="hidden" name="address[province]" value="">
+    <label for="AddressProvince_{{ form.id }}">{{ 'customer.addresses.province' | t }}</label>
+    <select id="AddressProvince_{{ form.id }}" name="address[province]" data-country-province="{{ form.province }}" required disabled></select>
+  </div>
+
+  <div class="field">
+    <label for="AddressZip_{{ form.id }}">{{ 'customer.addresses.zip' | t }}</label>
+    <input type="text" id="AddressZip_{{ form.id }}" name="address[zip]" value="{{ form.zip }}" autocapitalize="characters" required>
+  </div>
+
+  <div class="field">
+    <label for="AddressPhone_{{ form.id }}">{{ 'customer.addresses.phone' | t }}</label>
+    <input type="tel" id="AddressPhone_{{ form.id }}" name="address[phone]" value="{{ form.phone }}">
+  </div>
+
+  <div class="field">    
+    <label for="AddressDefault_{{ form.id }}">
+      <input type="checkbox" id="AddressDefault_{{ form.id }}" name="address[default]" value="1" {% if is_default %}checked{% endif %} />
+      {{ 'customer.addresses.set_default' | t }}
+    </label>
+  </div>
+  
+  <button class="btn">{{ submit_text }}</button>
+
+{% endform %}

@@ -1,0 +1,7 @@
+{% assign base_class = base_class | default: 'cp-popup' %}
+{% assign close_text = close_text | default: 'misc.close' | t %}
+
+<dialog id="{{ id }}" class="{{ base_class }} {{ classes }}" data-dialog>  
+  <form method="dialog"><button class="{{ base_class }}__overlay-close" title="{{ close_text }}">{{ close_text }}</button></form>
+  <div class="{{ base_class }}__canvas {{ canvas_classes }}">{{ content }}</div>
+</dialog>
