@@ -1,4 +1,7 @@
-{% form 'contact', novalidate: '' %}  
+{% comment %} {% assign show_phone = show_phone | default: true %} {% endcomment %}
+{% if show_phone == nil %}{% assign show_phone = true %}{% endif %}
+
+{% form 'contact', novalidate: '', class: class %}
   <!-- Ref: https://shopify.dev/docs/api/liquid/tags/form -->
 
   {% if form.posted_successfully? %}
@@ -24,10 +27,12 @@
       <input type="text" name="contact[last_name]" id="last-name" {% if settings.contact_last_name_required %}required{% endif %} />
     </div>
 
-    <div class="field">
-      <label for="phone">{{ 'contact.label_phone' | t }}</label>
-      <input type="tel" name="contact[phone]" id="phone" {% if settings.contact_phone_required %}required{% endif %} />
-    </div>
+    {% if show_phone %}
+      <div class="field">
+        <label for="phone">{{ 'contact.label_phone' | t }}</label>
+        <input type="tel" name="contact[phone]" id="phone" {% if settings.contact_phone_required %}required{% endif %} />
+      </div>
+    {% endif %}
 
     <div class="field">
       <label for="email">{{ 'contact.label_email' | t }}</label>
