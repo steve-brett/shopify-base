@@ -1,32 +1,29 @@
 {% if section.blocks.size > 0 %}
   <div class="layout">
 
-    {% if section.settings.title != blank %}
-      <h2>{{ section.settings.title }}</h2>
-    {% endif %}
+    <!-- @TODO: Title data -->
+    <h2>Title</h2>
           
     <div class="cp-card-list cp-card-list--features">
-      {% for block in section.blocks %}
+      <!-- @TODO: for block in blocks -->
 
         <div class="cp-card-list__item">
-          {% render 'cp-card', title: block.settings.title, image: block.settings.image, url: block.settings.url %}
+          <!-- @TODO: pass feature data into card -->
+          {% render 'cp-card' %}
         </div>
 
-      {% endfor %}
+      <!-- endfor -->
     </div>
 
   </div>
 {% endif %}
 
+<!-- @TODO: Build settings/block data -->
 {% schema %}
 {
   "name": "Featured",
   "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Title"
-    }
+    
   ],
   "max_blocks": 3,
   "blocks": [
@@ -34,29 +31,8 @@
       "type": "item",
       "name": "Item",
       "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "url",
-          "id": "url",
-          "label": "URL"
-        }
+        
       ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Features",
-      "settings": {
-      }
     }
   ]
 }

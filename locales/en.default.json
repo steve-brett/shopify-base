@@ -80,8 +80,6 @@
     "subscribe": "Subscribe"
   },
   "contact": {
-    "label_first_name": "First name",
-    "label_last_name": "Last name",
     "label_phone": "Phone",
     "label_email": "Email",
     "label_order_number": "Order number",

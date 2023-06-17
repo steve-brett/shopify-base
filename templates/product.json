@@ -4,16 +4,9 @@
       "type": "main-product",
       "settings": {
       }
-    },
-    "e919ee10-71c4-4842-96c3-717af353f3cf": {
-      "type": "recommendations",
-      "settings": {
-        "limit": 10
-      }
     }
   },
   "order": [
-    "main",
-    "e919ee10-71c4-4842-96c3-717af353f3cf"
+    "main"
   ]
 }
