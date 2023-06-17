@@ -1,6 +1,6 @@
 {% assign error_title = error_title | default: 'general.form_error' | t %}
 
 {% if errors %}
-  {% capture error_body %}{{ errors | default_errors }}{% endcapture %}
+  {% assign error_body = errors | default_errors %}
   {% render 'cp-message', title: error_title, type: 'error', body: error_body %}
 {% endif %}
