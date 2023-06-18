@@ -85,8 +85,8 @@ a:hover, a:focus-within {
 
 .btn {
   display: inline-block;
-  background: var(--clr-primary);
-  color: var(--clr-primary-contrast);
+  background: var(--clr-primary, black);
+  color: var(--clr-primary-contrast, white);
   padding: 10px 12px;
   border: 0;
   font-weight: bold;
