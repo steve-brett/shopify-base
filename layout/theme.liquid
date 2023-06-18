@@ -34,8 +34,8 @@
 
     <style>
       :root {
-        --clr-primary: {{ shop.brand.colors.primary[0].background }};
-        --clr-primary-contrast: {{ shop.brand.colors.primary[0].foreground }};
+        {% if shop.brand.colors.primary[0].background %}--clr-primary: {{ shop.brand.colors.primary[0].background }};{% endif %}
+        {% if shop.brand.colors.primary[0].foreground %}--clr-primary-contrast: {{ shop.brand.colors.primary[0].foreground }};{% endif %}
       }
     </style>
 
